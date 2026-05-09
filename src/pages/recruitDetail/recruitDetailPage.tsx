@@ -1,4 +1,4 @@
-const RecruitDatailPage = () => {
+const RecruitDetailPage = () => {
   return (
     <>
       <h1>채용공고 상세 페이지</h1>
@@ -6,4 +6,4 @@ const RecruitDatailPage = () => {
   );
 };
 
-export default RecruitDatailPage;
+export default RecruitDetailPage;

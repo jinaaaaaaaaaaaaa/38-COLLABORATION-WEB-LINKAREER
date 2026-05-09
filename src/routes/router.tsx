@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import HomePage from "../pages/home/homePage";
 import RecruitPage from "../pages/recruit/recruitPage";
-import RecruitDatailPage from "../pages/recruitDetail/recruitDetailPage";
+import RecruitDetailPage from "../pages/recruitDetail/recruitDetailPage";
 import MentoPage from "../pages/mento/mentoPage";
 
 const router = createBrowserRouter([
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/recruit/detail",
-    element: <RecruitDatailPage />,
+    element: <RecruitDetailPage />,
   },
   {
     path: "/mento",
