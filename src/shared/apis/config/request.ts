@@ -44,9 +44,12 @@ export const request = async <T>(config: RequestConfig): Promise<T> => {
       throw error;
     }
 
-    if (error.response) {
-      const { status, data } = error.response;
-      const message = data?.message;
+    const { response } = error;
+
+    if (response) {
+      const { status } = response;
+      const errorData = response.data as BaseResponse<unknown>;
+      const message = errorData?.message;
 
       const displayMessage =
         RESPONSE_MESSAGE[status] ||
