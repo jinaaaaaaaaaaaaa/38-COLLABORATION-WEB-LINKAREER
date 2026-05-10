@@ -33,7 +33,7 @@
       "@utils/*": ["./src/shared/utils/*"],
       "@constants/*": ["./src/shared/constants/*"],
       "@shared/*": ["./src/shared/*"],
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"]

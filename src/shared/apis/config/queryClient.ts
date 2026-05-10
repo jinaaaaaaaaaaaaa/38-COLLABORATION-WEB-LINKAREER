@@ -1,9 +1,9 @@
-import { QueryCache, QueryClient } from "@tanstack/react-query";
+import { QueryCache, QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: (error) => {
-      if (import.meta.env.DEV) console.error("[React Query Error]", error);
+      if (import.meta.env.DEV) console.error('[React Query Error]', error);
     },
   }),
   defaultOptions: {

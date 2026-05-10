@@ -1,16 +1,16 @@
-import { isAxiosError } from "axios";
+import { RESPONSE_MESSAGE } from '@constants/response';
+import { isAxiosError } from 'axios';
 
-import { RESPONSE_MESSAGE } from "@constants/response";
-import type { BaseResponse } from "@shared/types/baseResponse";
+import type { BaseResponse } from '@shared/types/baseResponse';
 
-import axiosInstance from "./axiosInstance";
+import axiosInstance from './axiosInstance';
 
 export const HTTPMethod = {
-  GET: "GET",
-  POST: "POST",
-  PUT: "PUT",
-  DELETE: "DELETE",
-  PATCH: "PATCH",
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+  PATCH: 'PATCH',
 } as const;
 
 export type HTTPMethodType = (typeof HTTPMethod)[keyof typeof HTTPMethod];
@@ -51,7 +51,7 @@ export const request = async <T>(config: RequestConfig): Promise<T> => {
       const displayMessage =
         RESPONSE_MESSAGE[status] ||
         message ||
-        "알 수 없는 오류가 발생했습니다.";
+        '알 수 없는 오류가 발생했습니다.';
 
       if (import.meta.env.DEV) {
         console.error(`[실패] ${url} : ${displayMessage}`);

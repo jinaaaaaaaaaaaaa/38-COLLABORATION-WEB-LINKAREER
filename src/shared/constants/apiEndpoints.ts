@@ -1,9 +1,9 @@
 export const API_ENDPOINT = {
   HOME: {
-    JOB_POSTINGS: "/api/v1/home/job-postings", // 맞춤 공고 조회, 지금 지원 가능한 공고 조회
+    JOB_POSTINGS: '/api/v1/home/job-postings', // 맞춤 공고 조회, 지금 지원 가능한 공고 조회
   },
   RECRUIT: {
-    LIST: "/api/v1/job-postings", // 필터링 조회
+    LIST: '/api/v1/job-postings', // 필터링 조회
     DETAIL: (jobPostingId: number) =>
       `/api/v1/job-postings/${jobPostingId}/reviews`, // 공고 상세
     PASS_LETTERS: (jobPostingId: number) =>
@@ -12,7 +12,7 @@ export const API_ENDPOINT = {
       `/api/v1/job-postings/${jobPostingId}/pass-reviews`, // 합격 후기
   },
   COMMUNITY: {
-    POSTS: "/api/v1/posts", // 게시글 조회
+    POSTS: '/api/v1/posts', // 게시글 조회
   },
 } as const;
 
