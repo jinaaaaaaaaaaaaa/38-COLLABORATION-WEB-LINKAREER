@@ -6,6 +6,7 @@ import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
@@ -30,6 +31,7 @@ export default defineConfig([
     plugins: {
       '@eslint-react': react,
       '@stylistic': stylistic,
+      'simple-import-sort': simpleImportSort,
       'unused-imports': unusedImports,
     },
     rules: {
@@ -54,6 +56,34 @@ export default defineConfig([
           varsIgnorePattern: '^_',
         },
       ],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['../*'],
+              message:
+                '상위 디렉토리 상대 경로 대신 path alias를 사용해주세요.',
+            },
+          ],
+        },
+      ],
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            ['^node:'],
+            ['^react$', '^react-dom', '^@?\\w'],
+            [
+              '^@(/.*|$)',
+              '^@(pages|routes|shared|apis|assets|components|hooks|styles|utils)(/.*|$)',
+            ],
+            ['^\\.'],
+            ['^.+\\.s?css$'],
+          ],
+        },
+      ],
+      'simple-import-sort/exports': 'error',
     },
   },
   {
