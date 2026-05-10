@@ -33,6 +33,7 @@ export default defineConfig([
       '@stylistic': stylistic,
       'simple-import-sort': simpleImportSort,
       'unused-imports': unusedImports,
+      'vanilla-extract': vanillaExtract,
     },
     rules: {
       '@eslint-react/no-array-index-key': 'warn',
@@ -84,6 +85,7 @@ export default defineConfig([
         },
       ],
       'simple-import-sort/exports': 'error',
+      'vanilla-extract/concentric-order': 'error',
     },
   },
   {
