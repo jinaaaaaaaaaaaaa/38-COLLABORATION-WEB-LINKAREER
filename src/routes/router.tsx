@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
-import HomePage from "../pages/home/homePage";
-import RecruitPage from "../pages/recruit/recruitPage";
-import RecruitDetailPage from "../pages/recruitDetail/recruitDetailPage";
-import MentoPage from "../pages/mento/mentoPage";
+import HomePage from "../pages/home/HomePage";
+import RecruitPage from "../pages/recruit/RecruitPage";
+import RecruitDetailPage from "../pages/recruitDetail/RecruitDetailPage";
+import MentoPage from "../pages/mento/MentoPage";
 
 const router = createBrowserRouter([
   {
