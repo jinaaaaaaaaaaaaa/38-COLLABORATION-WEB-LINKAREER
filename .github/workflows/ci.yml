@@ -4,7 +4,11 @@ on:
   pull_request:
     branches: [dev, main]
   push:
-    branches: [dev, main]
+    branches: [dev]
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   build:
@@ -17,12 +21,12 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.33.2
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24.14.1
+          node-version: 24
           cache: pnpm
 
       - name: Install dependencies
@@ -31,5 +35,31 @@ jobs:
       - name: Run lint
         run: pnpm lint
 
+      - name: Run Prettier Check
+        run: pnpm format:check
+
       - name: Run build
+        id: build
         run: pnpm build
+        continue-on-error: true
+
+      - name: Add build result comment
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const outcome = '${{ steps.build.outcome }}';
+            const message = outcome === 'success'
+              ? '빌드 성공 🎉'
+              : '빌드 실패 ❌';
+
+            await github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### 빌드 결과\n${message}`
+            });
+
+      - name: Check build status
+        if: steps.build.outcome == 'failure'
+        run: exit 1

@@ -2,8 +2,7 @@ name: Auto Sync Deploy Fork
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   sync:
