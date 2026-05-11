@@ -14,7 +14,7 @@ jobs:
 
       - name: Add deploy fork remote
         run: |
-          git remote add deploy_fork git remote add deploy_fork https://jinaaaaaaaaaaaaa:${{ secrets.DEPLOY_TOKEN }}@github.com/jinaaaaaaaaaaaaa/38-COLLABORATION-WEB-LINKAREER.git
+          git remote add deploy_fork https://jinaaaaaaaaaaaaa:${{ secrets.DEPLOY_TOKEN }}@github.com/jinaaaaaaaaaaaaa/38-COLLABORATION-WEB-LINKAREER.git
           git config user.name "jinaaaaaaaaaaaaa"
           git config user.email "jinatye@gmail.com"
 
