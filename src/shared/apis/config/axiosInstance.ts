@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -12,8 +12,8 @@ axiosInstance.interceptors.response.use(
   (response) => {
     return response;
   },
-  (error) => {
-    return Promise.reject(new Error(String(error)));
+  (error: AxiosError) => {
+    return Promise.reject(error);
   },
 );
 
