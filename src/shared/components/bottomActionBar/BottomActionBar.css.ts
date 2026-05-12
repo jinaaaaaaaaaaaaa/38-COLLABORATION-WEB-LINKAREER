@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+
 import { color } from '@styles/tokens/color';
 
 export const wrapper = style({
@@ -6,18 +7,18 @@ export const wrapper = style({
   alignItems: 'center',
   justifyContent: 'center',
   gap: '0.8rem',
-  padding: '1.2rem 1.6rem',
   borderTop: `1px solid ${color.gray200}`,
+  padding: '1.2rem 1.6rem',
 });
 
 export const iconButton = style({
   display: 'flex',
+  flexShrink: 0,
   alignItems: 'center',
   justifyContent: 'center',
-  flexShrink: 0,
+  border: `1px solid ${color.gray200}`,
+  borderRadius: '0.8rem',
   cursor: 'pointer',
   width: '4.8rem',
   height: '4.8rem',
-  border: `1px solid ${color.gray200}`,
-  borderRadius: '0.8rem',
 });

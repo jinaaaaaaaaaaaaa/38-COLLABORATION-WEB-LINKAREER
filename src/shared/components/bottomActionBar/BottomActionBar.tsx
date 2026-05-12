@@ -1,6 +1,8 @@
-import Button from '@shared/components/button/Button';
-import * as styles from './BottomActionBar.css';
 import type { ReactNode } from 'react';
+
+import Button from '@shared/components/button/Button';
+
+import * as styles from './BottomActionBar.css';
 
 interface BottomActionBarProps {
   icon: ReactNode;
