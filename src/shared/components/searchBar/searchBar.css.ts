@@ -9,7 +9,7 @@ export const container = style({
   alignItems: 'center',
   justifyContent: 'center',
   background: vars.color.blue500,
-  padding: '0.4rem 1.6rem 1.2rem 1.6rem', // = 375px
+  padding: '0.4rem 1.6rem 1.2rem 1.6rem',
   width: '100%',
   height: '6rem',
 });
@@ -50,12 +50,12 @@ export const aiSearchButton = style({
   display: 'flex',
   alignItems: 'center',
   gap: '0.4rem',
-  paddingLeft: '0.8rem',
-  width: 'calc(6.5rem + 0.8rem)', // 요소 너비에 padding width만큼 더 추가
+  marginLeft: '0.8rem',
+  width: '6.5rem',
 });
 
 export const aiIcon = style({
-  flexShrink: '0',
+  flexShrink: 0,
   width: '1.8rem',
   height: '1.8rem',
 });

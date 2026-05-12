@@ -12,7 +12,7 @@ const SearchBar = () => {
           placeholder="입학부터 커리어까지, 링커리어"
         />
         <div className={styles.verticalDivider} aria-hidden="true" />
-        <button className={styles.aiSearchButton}>
+        <button className={styles.aiSearchButton} type="button">
           <IcAi className={styles.aiIcon} />
           <span className={styles.aiText}>AI 검색</span>
         </button>
