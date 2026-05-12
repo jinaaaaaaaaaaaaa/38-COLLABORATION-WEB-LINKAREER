@@ -25,7 +25,7 @@ const ActionButton = ({
 }: ChipProps) => {
   return (
     <button type={type} className={styles.chip({ variant })} {...props}>
-      <span className={styles.text}>{children}</span>
+      <span>{children}</span>
       {rightIcon && <SvgIcChevronDownGray700 width="1.8rem" height="1.8rem" />}
     </button>
   );
