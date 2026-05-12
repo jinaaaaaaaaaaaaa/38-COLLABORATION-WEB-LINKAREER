@@ -1,19 +1,57 @@
-import type { ReactNode } from 'react';
+import { paginationWrapper } from './Pagination.css';
+import PageNumber from './PageNumber';
+import AngleBracket from './AngleBracket';
 
-import * as styles from './Pagenation.css';
-
-interface Props {
-  active?: boolean;
-  disabled?: boolean;
-  onClick?: () => void;
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  maxVisible?: number;
 }
 
-const Pagenation = ({ onClick }: Props) => {
-  return (
-    <button type="button" onClick={onClick}>
-      {children}
-    </button>
-  );
-};
+function getPageRange(current: number, total: number, maxVisible: number) {
+  if (total <= maxVisible) return { start: 1, end: total };
 
-export default Pagenation;
+  const blockIndex = Math.ceil(current / maxVisible) - 1;
+  const start = blockIndex * maxVisible + 1;
+  const end = Math.min(start + maxVisible - 1, total);
+
+  return { start, end };
+}
+
+export default function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+  maxVisible = 5,
+}: PaginationProps) {
+  if (totalPages <= 0) return null;
+
+  const { start, end } = getPageRange(currentPage, totalPages, maxVisible);
+  const pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+
+  return (
+    <nav aria-label="페이지 네비게이션" className={paginationWrapper}>
+      <AngleBracket
+        direction="left"
+        disabled={currentPage === 1}
+        onClick={() => onPageChange(currentPage - 1)}
+      />
+
+      {pages.map((page) => (
+        <PageNumber
+          key={page}
+          page={page}
+          active={page === currentPage}
+          onClick={() => onPageChange(page)}
+        />
+      ))}
+
+      <AngleBracket
+        direction="right"
+        disabled={currentPage === totalPages}
+        onClick={() => onPageChange(currentPage + 1)}
+      />
+    </nav>
+  );
+}
