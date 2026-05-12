@@ -34,6 +34,9 @@ export const searchField = style({
     '&::placeholder': {
       color: vars.color.gray400,
     },
+    '&:focus': {
+      outline: 'none',
+    },
   },
 });
 
