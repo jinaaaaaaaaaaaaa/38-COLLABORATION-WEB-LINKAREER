@@ -9,7 +9,7 @@ export const container = style({
   gap: '2rem',
   backgroundColor: vars.color.blue500,
   padding: '0 0.8rem 0 1.6rem',
-  width: '100%', // = 375px
+  width: '100%',
   height: '6rem',
 });
 
@@ -54,7 +54,7 @@ export const iconButton = style({
 });
 
 export const icon = style({
-  flexShrink: '0',
+  flexShrink: 0,
   width: '2rem',
   height: '2rem',
 });

@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 
+// TODO: SVG 컴포넌트 white로 교체
 import IcBell from '@assets/svg/IcBell';
 import IcBookMark from '@assets/svg/IcBookmark';
 import IcMenu2 from '@assets/svg/IcMenu2';
