@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { button } from './Button.css';
+import * as styles from './Button.css';
 
 interface Props {
   color?: 'filled' | 'outlined' | 'ghost';
@@ -16,7 +16,11 @@ const Button = ({
   onClick,
 }: Props) => {
   return (
-    <button type="button" className={button({ color, size })} onClick={onClick}>
+    <button
+      type="button"
+      className={styles.button({ color, size })}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
