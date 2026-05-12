@@ -18,7 +18,7 @@ export const chip = recipe({
   variants: {
     variant: {
       default: {
-        boxShadow: `inset 0 0 0 1px ${color.gray200}`,
+        border: `1px solid ${color.gray200}`,
         color: color.gray700,
       },
       filled: {
@@ -26,11 +26,11 @@ export const chip = recipe({
         color: color.white,
       },
       outline: {
-        boxShadow: `inset 0 0 0 1px ${color.blue500}`,
+        border: `1px solid ${color.blue500}`,
         color: color.blue500,
       },
       outlineFilled: {
-        boxShadow: `inset 0 0 0 1px ${color.blue500}`,
+        border: `1px solid ${color.blue500}`,
         backgroundColor: color.blue50,
         color: color.blue500,
       },
