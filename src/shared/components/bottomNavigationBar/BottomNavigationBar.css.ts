@@ -11,9 +11,9 @@ export const mainContainer = style({
   borderTop: `1px solid ${vars.color.gray200}`,
   borderBottom: `1px solid ${vars.color.gray200}`,
   background: vars.color.white,
+  padding: '0 2.4rem',
   width: '100%',
   height: '5.8rem',
-  padding: '0 2.4rem',
 });
 
 export const navItem = recipe({
