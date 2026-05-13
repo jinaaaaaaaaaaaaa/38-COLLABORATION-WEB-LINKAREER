@@ -18,7 +18,6 @@ export const iconButton = style({
   justifyContent: 'center',
   border: `1px solid ${color.gray200}`,
   borderRadius: '0.8rem',
-  cursor: 'pointer',
   width: '4.8rem',
   height: '4.8rem',
 });
