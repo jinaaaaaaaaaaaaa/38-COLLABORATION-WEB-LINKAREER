@@ -1,11 +1,11 @@
 import { useLocation, useNavigate } from 'react-router';
 
-import SvgIcHome from '@assets/svg/IcHome';
-import SvgIcHomeFilled from '@assets/svg/IcHomeFilled';
-import SvgIcCommunity from '@assets/svg/IcCommunity';
-import SvgIcCommunityFilled from '@assets/svg/IcCommunityFilled';
 import SvgIcCalendar2 from '@assets/svg/IcCalendar2';
 import SvgIcCalendar2Filled from '@assets/svg/IcCalendar2Filled';
+import SvgIcCommunity from '@assets/svg/IcCommunity';
+import SvgIcCommunityFilled from '@assets/svg/IcCommunityFilled';
+import SvgIcHome from '@assets/svg/IcHome';
+import SvgIcHomeFilled from '@assets/svg/IcHomeFilled';
 import SvgIcMy from '@assets/svg/IcMy';
 import SvgIcMyFilled from '@assets/svg/IcMyFilled';
 
@@ -58,7 +58,7 @@ const BottomNavigationBar = () => {
             className={styles.navItem({ active: isActive })}
             onClick={() => {
               if (hasPath) {
-                navigate(item.path);
+                void navigate(item.path);
               }
             }}
           >
