@@ -15,7 +15,7 @@ export interface ChipProps extends Omit<
   rightIcon?: boolean;
 }
 
-const ActionButton = ({
+const Chip = ({
   children,
   variant = 'default',
   rightIcon = false,
@@ -30,4 +30,4 @@ const ActionButton = ({
   );
 };
 
-export default ActionButton;
+export default Chip;
