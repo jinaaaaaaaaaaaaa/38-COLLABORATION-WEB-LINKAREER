@@ -2,18 +2,28 @@ import IcX from '@assets/svg/IcXBlue200';
 
 import * as styles from './Tag.css';
 
-type TagProps = {
+type BaseTagProps = {
   text: string;
-  color: 'gray' | 'red' | 'blue' | 'black';
-  size: 'small' | 'medium' | 'withIcon';
+  onRemove?: () => void;
 };
 
-const Tag = ({ text, color, size }: TagProps) => {
-  const hasXIcon = size === 'withIcon';
+type TagProps =
+  | (BaseTagProps & {
+      size: 'small' | 'medium';
+      color: 'gray' | 'red' | 'blue' | 'black';
+    })
+  | (BaseTagProps & {
+      size: 'withIcon';
+      color: 'blue';
+    });
+
+const Tag = ({ text, color, size, onRemove }: TagProps) => {
   return (
     <span className={styles.tag({ size, color })}>
       {text}
-      {hasXIcon && <IcX width="1.6rem" height="1.6rem" />}
+      {size === 'withIcon' && (
+        <IcX width="1.6rem" height="1.6rem" onClick={onRemove} />
+      )}
     </span>
   );
 };
