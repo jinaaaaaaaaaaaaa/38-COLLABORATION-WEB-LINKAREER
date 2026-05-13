@@ -42,7 +42,7 @@ const RecruitCard = ({
       {...props}
     >
       <div className={styles.imgContainer}>
-        <img src={imageUrl} alt={`${company} 로고`} />
+        <img src={imageUrl} alt={company ? `${company} 로고` : '회사 로고'} />
       </div>
 
       <div className={styles.contentContainer}>
