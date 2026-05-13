@@ -2,7 +2,7 @@ import IcChevronUp from '@shared/assets/svg/IcChevronUp';
 
 import * as styles from './BtnTop.css';
 
-export default function BtnTop() {
+const BtnTop = () => {
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -16,4 +16,6 @@ export default function BtnTop() {
       <IcChevronUp width={24} height={24} />
     </button>
   );
-}
+};
+
+export default BtnTop;
