@@ -7,12 +7,13 @@ import { typography } from '@styles/tokens/typography';
 export const mainContainer = style({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   borderTop: `1px solid ${vars.color.gray200}`,
   borderBottom: `1px solid ${vars.color.gray200}`,
   background: vars.color.white,
   width: '100%',
   height: '5.8rem',
+  padding: '0 2.4rem',
 });
 
 export const navItem = recipe({
