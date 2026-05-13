@@ -5,18 +5,17 @@ interface IndicatorProps {
   currentIndex: number;
 }
 
-export default function Indicator({
-  totalCount,
-  currentIndex,
-}: IndicatorProps) {
+const Indicator = ({ totalCount, currentIndex }: IndicatorProps) => {
   return (
     <div className={styles.wrapper}>
-      {Array.from({ length: totalCount }, (_, i) => (
+      {Array.from({ length: totalCount }, (_, index) => (
         <div
-          key={i}
-          className={styles.dotRecipe({ active: i === currentIndex })}
+          key={index}
+          className={styles.dotRecipe({ active: index === currentIndex })}
         />
       ))}
     </div>
   );
-}
+};
+
+export default Indicator;
