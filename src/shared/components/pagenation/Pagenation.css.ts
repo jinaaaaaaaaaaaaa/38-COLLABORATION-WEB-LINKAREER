@@ -13,7 +13,6 @@ export const pagenationButtonBase = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  cursor: 'pointer',
   width: '3.6rem',
   height: '3.6rem',
 });
