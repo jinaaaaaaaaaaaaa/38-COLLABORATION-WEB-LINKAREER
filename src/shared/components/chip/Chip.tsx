@@ -20,10 +20,15 @@ const Chip = ({
   variant = 'default',
   rightIcon = false,
   type = 'button',
+  className,
   ...props
 }: ChipProps) => {
   return (
-    <button type={type} className={styles.chip({ variant })} {...props}>
+    <button
+      type={type}
+      className={`${styles.chip({ variant })} ${className ?? ''}`}
+      {...props}
+    >
       <span>{children}</span>
       {rightIcon && <SvgIcChevronDownGray700 width="1.8rem" height="1.8rem" />}
     </button>
