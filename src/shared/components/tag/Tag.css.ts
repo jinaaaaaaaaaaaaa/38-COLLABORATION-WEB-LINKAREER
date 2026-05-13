@@ -19,7 +19,6 @@ export const tag = recipe({
       },
       medium: {
         flexDirection: 'column',
-        gap: '1rem',
         padding: '0.4rem 0.8rem',
       },
       withIcon: {
