@@ -1,13 +1,13 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 
-const bannerBorder = `1px solid ${color.gray300}`;
+const bannerBorder = `1px solid ${vars.color.gray300}`;
 
 export const bannerContainer = recipe({
   base: {
-    backgroundColor: color.gray100,
+    backgroundColor: vars.color.gray100,
     padding: '1.6rem',
     width: '100%',
     height: '11.2rem',
@@ -31,7 +31,7 @@ export const bannerContainer = recipe({
 
 export const bannerImage = style({
   borderRadius: '0.8rem',
-  backgroundColor: color.gray200,
+  backgroundColor: vars.color.gray200,
   objectFit: 'cover',
   objectPosition: 'center',
   width: '100%',
