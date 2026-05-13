@@ -1,8 +1,7 @@
 import { Link } from 'react-router';
 
-// TODO: SVG 컴포넌트 white로 교체
 import IcBell from '@assets/svg/IcBell';
-import IcBookMark from '@assets/svg/IcBookmark';
+import IcBookmarkWhite from '@assets/svg/IcBookmarkWhite';
 import IcMenu2 from '@assets/svg/IcMenu2';
 import Logo from '@assets/svg/Logo';
 
@@ -10,7 +9,7 @@ import * as styles from './globalNavigationBar.css';
 
 const ACTION_ITEMS = [
   { label: '알림', Icon: IcBell },
-  { label: '북마크', Icon: IcBookMark },
+  { label: '북마크', Icon: IcBookmarkWhite },
   { label: '메뉴', Icon: IcMenu2 },
 ] as const;
 
