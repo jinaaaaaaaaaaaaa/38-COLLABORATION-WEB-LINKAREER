@@ -17,12 +17,12 @@ const GlobalNavigationBar = () => {
   return (
     <>
       <header className={styles.container}>
-        <section className={styles.frame}>
+        <div className={styles.frame}>
           <Link to="/" className={styles.logo} aria-label="Linkareer home">
             <Logo className={styles.logoIcon} />
           </Link>
 
-          <menu className={styles.content}>
+          <ul className={styles.content}>
             {ACTION_ITEMS.map(({ label, Icon }) => (
               <li key={label}>
                 <button
@@ -34,8 +34,8 @@ const GlobalNavigationBar = () => {
                 </button>
               </li>
             ))}
-          </menu>
-        </section>
+          </ul>
+        </div>
       </header>
     </>
   );
