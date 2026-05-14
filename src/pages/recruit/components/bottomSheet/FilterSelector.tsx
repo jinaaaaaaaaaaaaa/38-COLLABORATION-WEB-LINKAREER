@@ -96,7 +96,7 @@ const FilterSelector = () => {
       {selectedOptions.length > 0 && (
         <div className={styles.selectedContainer}>
           <span className={styles.text}>
-            선택한 직무{' '}
+            선택한 직무
             <span className={styles.count['bold']}>
               {selectedOptions.length}
             </span>
@@ -105,7 +105,7 @@ const FilterSelector = () => {
             {selectedOptions.map((option) => (
               <Tag
                 key={option}
-                text={`${option}`}
+                text={`직무 > ${option}`}
                 color="blue"
                 size="withIcon"
                 onRemove={() => handleOptionClick(option)}
