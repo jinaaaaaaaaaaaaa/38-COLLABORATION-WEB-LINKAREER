@@ -1,0 +1,90 @@
+import { style } from '@vanilla-extract/css';
+
+import { vars } from '@styles/theme.css';
+import { typography } from '@styles/tokens/typography';
+
+export const mainContainer = style({
+  display: 'flex',
+  paddingLeft: '1.6rem',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: '1.6rem',
+  alignSelf: 'stretch',
+});
+
+export const mainBox = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: '1.6rem',
+  alignSelf: 'stretch',
+});
+
+export const card = style({
+  display: 'flex',
+  width: '35.9rem',
+  alignItems: 'center',
+  gap: '1.6rem',
+});
+
+export const textBox = style({
+  display: 'flex',
+  width: '16rem',
+  height: '8.8rem',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: '0.8rem',
+  flexShrink: 0,
+});
+
+export const title = style({
+  height: '4.2rem',
+  flexShrink: 0,
+  alignSelf: 'stretch',
+  overflow: 'hidden',
+  display: '-webkit-box',
+  WebkitLineClamp: 2,
+  WebkitBoxOrient: 'vertical',
+  ...typography.body_b_14,
+  color: vars.color.gray900,
+});
+
+export const companyName = style({
+  alignSelf: 'stretch',
+  ...typography.caption_m_12,
+  color: vars.color.gray900,
+});
+
+export const bottomBox = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.4rem',
+  alignSelf: 'stretch',
+});
+
+export const dDay = style({
+  ...typography.caption_m_12,
+  color: vars.color.blue500,
+});
+
+export const bookmarkBox = style({
+  display: 'flex',
+  width: '4.4rem',
+  height: '4.4rem',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '0.4rem',
+  flexShrink: 0,
+});
+
+export const bookmarkIcon = style({
+  width: '1.0667rem',
+  height: '1.3333rem',
+});
+
+export const bookmarkText = style({
+  textAlign: 'center',
+  ...typography.caption_r_12,
+  color: vars.color.gray500,
+});
