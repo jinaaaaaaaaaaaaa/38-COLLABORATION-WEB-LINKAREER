@@ -8,14 +8,14 @@ import {
   FILTER_TABS,
   type FilterTab,
 } from '@pages/recruit/constants/filterOptions';
-import type { filterValues } from '@pages/recruit/types/filter';
+import type { FilterValues } from '@pages/recruit/types/filter';
 
 import * as styles from './FilterSelector.css';
 
 interface FilterSelectorProps {
   isOpen: boolean;
-  selectedFilters: filterValues;
-  setSelectedFilters: React.Dispatch<React.SetStateAction<filterValues>>;
+  selectedFilters: FilterValues;
+  setSelectedFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
 }
 
 const FilterSelector = ({

@@ -5,7 +5,7 @@ import SvgIcRefresh from '@assets/svg/IcRefresh';
 import SvgIcXGray900 from '@assets/svg/IcXGray900';
 import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
 import { CONTENT_RESULT } from '@pages/recruit/constants/resultNumber';
-import type { filterValues } from '@pages/recruit/types/filter';
+import type { FilterValues } from '@pages/recruit/types/filter';
 
 import FilterSelector from './FilterSelector';
 
@@ -17,7 +17,7 @@ interface FilterBottomSheetProps {
 }
 
 const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
-  const [selectedFilters, setSelectedFilters] = useState<filterValues>({
+  const [selectedFilters, setSelectedFilters] = useState<FilterValues>({
     jobCategories: [],
     companyTypes: [],
     employmentTypes: [],
@@ -35,7 +35,7 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
   }, [isOpen]);
 
   // 결과 개수
-  const getResultCount = (selectedFilters: filterValues) => {
+  const getResultCount = (selectedFilters: FilterValues) => {
     const { jobCategories } = selectedFilters;
 
     if (jobCategories.length === 0) return CONTENT_RESULT.default;
@@ -56,7 +56,7 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
   const resultCount = getResultCount(selectedFilters);
 
   // 새로고침 버튼
-  const handleRefresh = () => {
+  const handleRefreshClick = () => {
     setSelectedFilters({
       jobCategories: [],
       companyTypes: [],
@@ -65,7 +65,7 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleApplyClick = () => {
     onClose();
   };
 
@@ -77,11 +77,13 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="검색 필터 대화상자"
+        aria-labelledby="검색 필터"
         className={clsx(styles.container, isOpen && styles.containerOpen)}
       >
         <header className={styles.headerContainer}>
-          <h2 className={styles.title}>검색 필터</h2>
+          <h2 id="검색 필터" className={styles.title}>
+            검색 필터
+          </h2>
           <button
             type="button"
             className={styles.closeBtn}
@@ -102,8 +104,8 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
           icon={<SvgIcRefresh width={'2rem'} height={'2rem'} />}
           iconAriaLabel="새로고침 버튼"
           label={`${resultCount.toLocaleString()}개 공고보기`}
-          onIconClick={handleRefresh}
-          onLabelClick={handleSubmit}
+          onIconClick={handleRefreshClick}
+          onLabelClick={handleApplyClick}
         />
       </div>
     </>

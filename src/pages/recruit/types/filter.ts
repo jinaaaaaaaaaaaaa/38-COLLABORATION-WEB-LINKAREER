@@ -1,4 +1,4 @@
-export interface filterValues {
+export interface FilterValues {
   jobCategories: string[];
   companyTypes: string[];
   employmentTypes: string[];
