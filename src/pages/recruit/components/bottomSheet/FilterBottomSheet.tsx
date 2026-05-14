@@ -18,6 +18,7 @@ const FilterBottomSheet = () => {
     regions: [],
   });
 
+  // 결과 개수
   const getResultCount = (selectedFilters: filterValues) => {
     const { jobCategories } = selectedFilters;
 
@@ -38,6 +39,16 @@ const FilterBottomSheet = () => {
 
   const resultCount = getResultCount(selectedFilters);
 
+  // 새로고침 버튼
+  const handleRefresh = () => {
+    setSelectedFilters({
+      jobCategories: [],
+      companyTypes: [],
+      employmentTypes: [],
+      regions: [],
+    });
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.headerContainer}>
@@ -56,6 +67,7 @@ const FilterBottomSheet = () => {
         icon={<SvgIcRefresh width={'2rem'} height={'2rem'} />}
         iconAriaLabel="새로고침 버튼"
         label={`${resultCount.toLocaleString()}개 공고보기`}
+        onIconClick={handleRefresh}
       />
     </div>
   );
