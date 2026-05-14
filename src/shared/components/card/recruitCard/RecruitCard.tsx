@@ -37,7 +37,9 @@ const RecruitCard = ({
   return (
     <div className={styles.wrapper} onClick={() => onCardClick?.(id)}>
       <div className={styles.imgContainer}>
-        <img src={imageUrl} alt={company ? `${company} 로고` : '회사 로고'} />
+        {imageUrl && (
+          <img src={imageUrl} alt={company ? `${company} 로고` : '회사 로고'} />
+        )}
       </div>
 
       <div className={styles.contentContainer}>
