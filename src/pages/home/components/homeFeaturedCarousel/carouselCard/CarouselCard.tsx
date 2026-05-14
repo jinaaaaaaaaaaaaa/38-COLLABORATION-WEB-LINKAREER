@@ -4,40 +4,36 @@ import DdayTag from '@pages/home/components/ddayTag/DdayTag';
 import * as styles from './CarouselCard.css';
 
 interface CarouselCardProps {
-  numOfCards: number;
-  currCardOrder: number;
-  companyNameText: string;
-  companySizeText: string;
+  totalCardCount: number;
+  currentCardNumber: number;
+  companyName: string;
+  companySize: string;
   daysLeft: number;
-  backgroundUrl: string;
-  backgroundAlt: string;
-  iconUrl: string;
-  iconAlt: string;
+  thumbnailUrl: string;
+  thumbnailAlt: string;
+  companyLogoUrl: string;
+  companyLogoAlt: string;
 }
 
 const CarouselCard = ({
-  numOfCards,
-  currCardOrder,
-  companyNameText,
-  companySizeText,
+  totalCardCount,
+  currentCardNumber,
+  companyName,
+  companySize,
   daysLeft,
-  backgroundUrl,
-  backgroundAlt,
-  iconUrl,
-  iconAlt,
+  thumbnailUrl,
+  thumbnailAlt,
+  companyLogoUrl,
+  companyLogoAlt,
 }: CarouselCardProps) => {
   return (
     <article className={styles.container}>
-      <img
-        className={styles.thumbnail}
-        src={backgroundUrl}
-        alt={backgroundAlt}
-      />
+      <img className={styles.thumbnail} src={thumbnailUrl} alt={thumbnailAlt} />
       <div className={styles.fractionalIndicator}>
         <Tag
           size="medium"
           color="black"
-          text={`${currCardOrder}/${numOfCards}`}
+          text={`${currentCardNumber}/${totalCardCount}`}
         />
       </div>
       <div className={styles.ddayIndicator}>
@@ -45,10 +41,14 @@ const CarouselCard = ({
       </div>
       <div className={styles.overlay}>
         <div className={styles.companyInfoContainer}>
-          <img className={styles.companyIcon} src={iconUrl} alt={iconAlt} />
+          <img
+            className={styles.companyLogo}
+            src={companyLogoUrl}
+            alt={companyLogoAlt}
+          />
           <div className={styles.companyInfoText}>
-            <h2 className={styles.companyName}>{companyNameText}</h2>
-            <p className={styles.companySize}>{companySizeText}</p>
+            <h2 className={styles.companyName}>{companyName}</h2>
+            <p className={styles.companySize}>{companySize}</p>
           </div>
         </div>
       </div>
