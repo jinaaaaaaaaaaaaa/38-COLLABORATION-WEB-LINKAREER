@@ -11,6 +11,22 @@ export const mainContainer = style({
   gap: '1.6rem',
   alignSelf: 'stretch',
 });
+export const topBox = style({
+  display: 'flex',
+  width: '34.3rem',
+  height: '4.4rem',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+export const mainTitle = style({
+  ...typography.title_b_20,
+  color: vars.color.gray900,
+});
+export const viewMoreButton = style({
+  textAlign: 'right',
+  ...typography.body_r_14,
+  color: vars.color.gray500,
+});
 
 export const mainBox = style({
   display: 'flex',
