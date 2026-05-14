@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router';
 
 import Footer from '@components/footer/Footer';
-import GlobalNavigationBar from '@components/GlobalNavigationBar/GlobalNavigationBar';
+import GlobalNavigationBar from '@components/globalNavigationBar/GlobalNavigationBar';
 
 const AppLayout = () => {
   return (
