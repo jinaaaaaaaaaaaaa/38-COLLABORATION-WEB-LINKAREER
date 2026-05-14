@@ -4,7 +4,7 @@ import ClipBoardImage from '@assets/svg/Graphic1';
 import ClockImage from '@assets/svg/Graphic2';
 import Button from '@components/button/Button';
 
-import * as style from './homeCuratedCard.css';
+import * as style from './HomeCuratedCard.css';
 
 const CARD_IMAGE = {
   clipboard: ClipBoardImage,
