@@ -10,16 +10,16 @@ interface MentoListItemProps {
 const MentoListItem = ({ post }: MentoListItemProps) => {
   return (
     <li className={styles.container({ isNotice: post.isNotice })}>
-      {post.isNotice && post.company && post.job && (
+      {post.isNotice || (
         <div className={styles.filterRow}>
-          <span>{post.company}</span>
+          <span>{post.company ?? '모든 기업'}</span>
           <span className={styles.divider} aria-hidden="true" />
-          <span>{post.job}</span>
+          <span>{post.job ?? '모든 직무'}</span>
         </div>
       )}
       <div className={styles.mainContainer}>
         <div className={styles.leftInfo}>
-          <span className={styles.title}>{post.title}</span>
+          <h3 className={styles.title}>{post.title}</h3>
           <div className={styles.infoRow}>
             <span className={styles.strongText}>{post.authorId}</span>
             <span>{formatDotDate(post.postDate)}</span>
