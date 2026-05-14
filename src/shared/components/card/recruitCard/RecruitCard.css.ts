@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
-export const wrapper = style({
+export const container = style({
   display: 'flex',
   gap: '1.2rem',
   border: `1px solid ${vars.color.gray100}`,
