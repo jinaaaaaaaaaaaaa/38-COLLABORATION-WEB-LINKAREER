@@ -74,7 +74,6 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
       <div
         className={clsx(styles.backdrop, isOpen && styles.backdropVisible)}
       />
-
       <div
         role="dialog"
         aria-modal="true"
