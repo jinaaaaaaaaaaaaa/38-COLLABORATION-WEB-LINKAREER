@@ -3,4 +3,5 @@ export const CONTENT_RESULT = {
   default: '120,316',
   business: '2',
   sales: '3',
+  salesAndBusiness: '5',
 };

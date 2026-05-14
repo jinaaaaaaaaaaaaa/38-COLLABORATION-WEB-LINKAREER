@@ -26,6 +26,12 @@ const FilterBottomSheet = () => {
       return CONTENT_RESULT.sales;
     if (jobCategories.length === 1 && jobCategories.includes('경영/사무'))
       return CONTENT_RESULT.business;
+    if (
+      jobCategories.length === 2 &&
+      jobCategories.includes('경영/사무') &&
+      jobCategories.includes('영업/고객상담')
+    )
+      return CONTENT_RESULT.salesAndBusiness;
 
     return 120316;
   };
