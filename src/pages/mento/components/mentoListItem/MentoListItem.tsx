@@ -1,4 +1,5 @@
 import type { Post } from '@pages/mento/types/post';
+import { formatDotDate } from '@pages/mento/utils/formatDate';
 
 import * as styles from './MentoListItem.css';
 
@@ -21,7 +22,7 @@ const MentoListItem = ({ post }: MentoListItemProps) => {
           <span className={styles.title}>{post.title}</span>
           <div className={styles.infoRow}>
             <span className={styles.strongText}>{post.authorId}</span>
-            <span>{post.postDate}</span>
+            <span>{formatDotDate(post.postDate)}</span>
           </div>
           <div className={styles.infoRow}>
             <span>조회수 {post.viewCount}</span>
