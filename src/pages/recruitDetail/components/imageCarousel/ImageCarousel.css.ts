@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const container = style({
@@ -36,10 +36,10 @@ export const pageLabel = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: '9999px',
-  backgroundColor: color.opacity40,
+  borderRadius: '4px',
+  backgroundColor: vars.color.opacity40,
   ...typography.caption_r_12,
   width: '3.4rem',
   height: '2.2rem',
-  color: color.white,
+  color: vars.color.white,
 });
