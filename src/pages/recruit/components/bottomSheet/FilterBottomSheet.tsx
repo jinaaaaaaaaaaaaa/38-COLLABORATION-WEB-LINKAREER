@@ -70,7 +70,7 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
   };
 
   const handleSubmit = () => {
-    handleClose();
+    onClose();
   };
 
   return (
@@ -79,18 +79,14 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
         className={clsx(styles.backdrop, isOpen && styles.backdropVisible)}
       />
 
-      <div className={clsx(styles.container, isOpen && styles.containerOpen)}>
+      <div
+        role="dialog"
+        aria-modal="true"
+        className={clsx(styles.container, isOpen && styles.containerOpen)}
+      >
         <header className={styles.headerContainer}>
           <h2 className={styles.title}>검색 필터</h2>
-          <button
-            type="button"
-            className={styles.closeBtn}
-            onPointerDown={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              handleClose();
-            }}
-          >
+          <button type="button" className={styles.closeBtn} onClick={onClose}>
             <SvgIcXGray900 width={'2.4rem'} height={'2.4rem'} />
           </button>
         </header>
