@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import SvgIcCheckBlue500 from '@assets/svg/IcCheckBlue500';
 import Tag from '@components/tag/Tag';
@@ -13,16 +13,25 @@ import type { filterValues } from '@pages/recruit/types/filter';
 import * as styles from './FilterSelector.css';
 
 interface FilterSelectorProps {
+  isOpen: boolean;
   selectedFilters: filterValues;
   setSelectedFilters: React.Dispatch<React.SetStateAction<filterValues>>;
 }
 
 const FilterSelector = ({
+  isOpen,
   selectedFilters,
   setSelectedFilters,
 }: FilterSelectorProps) => {
   const [activeTab, setActiveTab] = useState<FilterTab>('jobCategories');
   const currentOptions = FILTER_OPTIONS[activeTab];
+  const jobTabRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      jobTabRef.current?.focus();
+    }
+  }, [isOpen]);
 
   // 탭에 해당하는 값 꺼내기
   const selectedOptions = selectedFilters[activeTab];
@@ -65,6 +74,7 @@ const FilterSelector = ({
                 type="button"
                 onClick={() => setActiveTab(tab.key)}
                 className={styles.tab({ isSelected: isActive })}
+                ref={tab.key === 'jobCategories' ? jobTabRef : null}
               >
                 <span>{tab.label}</span>
                 {count > 0 && (

@@ -24,10 +24,6 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
     regions: [],
   });
 
-  const handleClose = () => {
-    onClose();
-  };
-
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -82,16 +78,23 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
       <div
         role="dialog"
         aria-modal="true"
+        aria-labelledby="검색 필터 대화상자"
         className={clsx(styles.container, isOpen && styles.containerOpen)}
       >
         <header className={styles.headerContainer}>
           <h2 className={styles.title}>검색 필터</h2>
-          <button type="button" className={styles.closeBtn} onClick={onClose}>
+          <button
+            type="button"
+            className={styles.closeBtn}
+            onClick={onClose}
+            aria-label="검색 필터 닫기"
+          >
             <SvgIcXGray900 width={'2.4rem'} height={'2.4rem'} />
           </button>
         </header>
 
         <FilterSelector
+          isOpen={isOpen}
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
         />
