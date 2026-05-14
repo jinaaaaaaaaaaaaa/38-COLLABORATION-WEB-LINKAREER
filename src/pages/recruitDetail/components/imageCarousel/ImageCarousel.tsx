@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react';
-
+import useCarouselDrag from '@pages/recruitDetail/hooks/useCarouselDrag';
 import * as styles from './ImageCarousel.css';
 
 interface ImageCarouselProps {
@@ -7,44 +6,13 @@ interface ImageCarouselProps {
 }
 
 const ImageCarousel = ({ images }: ImageCarouselProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const startXRef = useRef(0);
-  const isDraggingRef = useRef(false);
-  const slideWidth = 375;
-
-  const handleDragStart = (clientX: number) => {
-    isDraggingRef.current = true;
-    startXRef.current = clientX;
-  };
-
-  const handleDragMove = (clientX: number) => {
-    if (!isDraggingRef.current || !trackRef.current) return;
-    const delta = clientX - startXRef.current;
-    const baseOffset = -currentIndex * slideWidth;
-    trackRef.current.style.transform = `translateX(${baseOffset + delta}px)`;
-  };
-
-  const handleDragEnd = (clientX: number) => {
-    if (!isDraggingRef.current || !trackRef.current) return;
-    isDraggingRef.current = false;
-
-    const delta = clientX - startXRef.current;
-    const threshold = slideWidth / 3;
-
-    let nextIndex = currentIndex;
-    if (delta < -threshold)
-      nextIndex = Math.min(currentIndex + 1, images.length - 1);
-    if (delta > threshold) nextIndex = Math.max(currentIndex - 1, 0);
-
-    setCurrentIndex(nextIndex);
-    trackRef.current.style.transition = 'transform 0.3s ease';
-    trackRef.current.style.transform = `translateX(${-nextIndex * slideWidth}px)`;
-
-    setTimeout(() => {
-      if (trackRef.current) trackRef.current.style.transition = '';
-    }, 300);
-  };
+  const {
+    currentIndex,
+    trackRef,
+    handleDragStart,
+    handleDragMove,
+    handleDragEnd,
+  } = useCarouselDrag(images.length);
 
   return (
     <div
