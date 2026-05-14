@@ -3,6 +3,7 @@ import { useState } from 'react';
 import SvgIcCheckBlue500 from '@assets/svg/IcCheckBlue500';
 import Tag from '@components/tag/Tag';
 import {
+  ENABLED_JOB_CATEGORIES,
   FILTER_OPTIONS,
   FILTER_TABS,
   type FilterTab,
@@ -11,15 +12,17 @@ import type { filterValues } from '@pages/recruit/types/filter';
 
 import * as styles from './FilterSelector.css';
 
-const FilterSelector = () => {
+interface FilterSelectorProps {
+  selectedFilters: filterValues;
+  setSelectedFilters: React.Dispatch<React.SetStateAction<filterValues>>;
+}
+
+const FilterSelector = ({
+  selectedFilters,
+  setSelectedFilters,
+}: FilterSelectorProps) => {
   const [activeTab, setActiveTab] = useState<FilterTab>('jobCategories');
   const currentOptions = FILTER_OPTIONS[activeTab];
-  const [selectedFilters, setSelectedFilters] = useState<filterValues>({
-    jobCategories: [],
-    companyTypes: [],
-    employmentTypes: [],
-    regions: [],
-  });
 
   // 탭에 해당하는 값 꺼내기
   const selectedOptions = selectedFilters[activeTab];
@@ -27,6 +30,7 @@ const FilterSelector = () => {
     return selectedOptions.includes(option);
   };
 
+  // 옵션 클릭
   const handleOptionClick = (option: string) => {
     setSelectedFilters((prev) => {
       const current = prev[activeTab];
@@ -41,6 +45,7 @@ const FilterSelector = () => {
     });
   };
 
+  // 선택된 옵션 개수를 카테고리 영역에 표시
   const getSelectedCount = (tab: FilterTab) => {
     return selectedFilters[tab].length;
   };
@@ -74,6 +79,9 @@ const FilterSelector = () => {
         <div className={styles.optionContainer}>
           {currentOptions.map((option) => {
             const selected = isSelected(option);
+            const isDisabled =
+              activeTab === 'jobCategories' &&
+              !ENABLED_JOB_CATEGORIES.includes(option);
 
             return (
               <button
@@ -81,6 +89,7 @@ const FilterSelector = () => {
                 type="button"
                 className={styles.option({ isSelected: selected })}
                 onClick={() => handleOptionClick(option)}
+                disabled={isDisabled}
               >
                 {selected && (
                   <SvgIcCheckBlue500 width={'1.6rem'} height={'1.6rem'} />
@@ -93,7 +102,7 @@ const FilterSelector = () => {
       </div>
 
       {/* 선택한 직무 카드 */}
-      {selectedOptions.length > 0 && (
+      {activeTab === 'jobCategories' && selectedOptions.length > 0 && (
         <div className={styles.selectedContainer}>
           <span className={styles.text}>
             선택한 직무

@@ -1,14 +1,37 @@
+import { useState } from 'react';
+
 import SvgIcRefresh from '@assets/svg/IcRefresh';
 import SvgIcXGray900 from '@assets/svg/IcXGray900';
 import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
+import { CONTENT_RESULT } from '@pages/recruit/constants/resultNumber';
+import type { filterValues } from '@pages/recruit/types/filter';
 
 import FilterSelector from './FilterSelector';
 
 import * as styles from './FilterBottomSheet.css';
 
-const CONTENT_NUMBER = '120,316';
-
 const FilterBottomSheet = () => {
+  const [selectedFilters, setSelectedFilters] = useState<filterValues>({
+    jobCategories: [],
+    companyTypes: [],
+    employmentTypes: [],
+    regions: [],
+  });
+
+  const getResultCount = (selectedFilters: filterValues) => {
+    const { jobCategories } = selectedFilters;
+
+    if (jobCategories.length === 0) return CONTENT_RESULT.default;
+    if (jobCategories.length === 1 && jobCategories.includes('영업/고객상담'))
+      return CONTENT_RESULT.sales;
+    if (jobCategories.length === 1 && jobCategories.includes('경영/사무'))
+      return CONTENT_RESULT.business;
+
+    return 120316;
+  };
+
+  const resultCount = getResultCount(selectedFilters);
+
   return (
     <div className={styles.container}>
       <header className={styles.headerContainer}>
@@ -18,12 +41,15 @@ const FilterBottomSheet = () => {
         </button>
       </header>
 
-      <FilterSelector />
+      <FilterSelector
+        selectedFilters={selectedFilters}
+        setSelectedFilters={setSelectedFilters}
+      />
 
       <BottomActionBar
         icon={<SvgIcRefresh width={'2rem'} height={'2rem'} />}
         iconAriaLabel="새로고침 버튼"
-        label={`${CONTENT_NUMBER}개 공고보기`}
+        label={`${resultCount.toLocaleString()}개 공고보기`}
       />
     </div>
   );
