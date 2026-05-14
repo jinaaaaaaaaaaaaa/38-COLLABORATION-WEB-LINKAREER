@@ -4,7 +4,6 @@ import BottomNavigationBar from '@components/bottomNavigationBar/BottomNavigatio
 import Footer from '@components/footer/Footer';
 import GlobalNavigationBar from '@components/globalNavigationBar/GlobalNavigationBar';
 
-
 const AppLayout = () => {
   return (
     <>
@@ -15,7 +14,6 @@ const AppLayout = () => {
       </main>
 
       <BottomNavigationBar />
-
     </>
   );
 };
