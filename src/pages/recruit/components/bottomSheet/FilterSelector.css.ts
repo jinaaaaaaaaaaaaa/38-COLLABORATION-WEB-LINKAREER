@@ -20,7 +20,6 @@ export const filterContainer = style({
 export const tabContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  WebkitTapHighlightColor: 'transparent',
 });
 
 export const tab = recipe({
@@ -71,7 +70,6 @@ export const optionContainer = style({
   flexDirection: 'column',
   height: '21.2rem',
   overflowY: 'auto',
-  WebkitTapHighlightColor: 'transparent',
 
   selectors: {
     '&::-webkit-scrollbar': {
