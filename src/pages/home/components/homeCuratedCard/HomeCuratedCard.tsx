@@ -34,7 +34,7 @@ const HomeCuratedCard = ({
   };
 
   return (
-    <div className={style.curatedCard}>
+    <article className={style.curatedCard}>
       <div className={style.curatedContentContainer}>
         <div className={style.curatedTextContainer}>
           <p className={style.cardEyebrow}>{eyebrowText}</p>
@@ -45,7 +45,7 @@ const HomeCuratedCard = ({
         </Button>
       </div>
       <CuratedImage className={style.cardImage} aria-hidden={true} />
-    </div>
+    </article>
   );
 };
 
