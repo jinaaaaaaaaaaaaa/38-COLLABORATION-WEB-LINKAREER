@@ -1,4 +1,4 @@
-import * as style from './ddayTag.css';
+import * as style from './DdayTag.css';
 
 interface DdayTagProps {
   daysLeft: number;
