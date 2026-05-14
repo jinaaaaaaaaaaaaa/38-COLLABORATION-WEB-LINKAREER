@@ -27,11 +27,11 @@ const RecruitCard = ({
   deadlineLabel,
   onCardClick,
 }: RecruitCardProps) => {
-  const [isMarked, setIsMarked] = useState(false);
+  const [isBookmarked, setIsBookMarked] = useState(false);
 
   const handleBookmarkClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsMarked((prev) => !prev);
+    setIsBookMarked((prev) => !prev);
   };
 
   return (
@@ -50,12 +50,12 @@ const RecruitCard = ({
           </div>
           <button
             type="button"
-            aria-pressed={isMarked}
-            aria-label={isMarked ? '북마크 해제' : '북마크 저장'}
+            aria-pressed={isBookmarked}
+            aria-label={isBookmarked ? '북마크 해제' : '북마크 저장'}
             className={styles.icContainer}
             onClick={handleBookmarkClick}
           >
-            {isMarked ? (
+            {isBookmarked ? (
               <SvgIcBookmarkFilled width={'1.6rem'} height={'1.6rem'} />
             ) : (
               <SvgIcBookmarkGray400 width={'1.6rem'} height={'1.6rem'} />
