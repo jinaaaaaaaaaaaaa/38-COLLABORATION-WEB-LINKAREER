@@ -55,7 +55,13 @@ export const optionContainer = style({
   display: 'flex',
   flexDirection: 'column',
   height: '21.2rem',
-  overflowY: 'hidden',
+  overflowY: 'auto',
+
+  selectors: {
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+  },
 });
 
 export const option = recipe({
