@@ -52,7 +52,7 @@ export const closeBtn = style({
 export const headerContainer = style({
   display: 'flex',
   justifyContent: 'space-between',
-  borderBottom: `1px soild ${vars.color.gray100}`,
+  borderBottom: `1px solid ${vars.color.gray100}`,
   padding: '2rem',
 });
 
