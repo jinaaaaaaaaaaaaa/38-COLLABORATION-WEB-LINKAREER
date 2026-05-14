@@ -5,7 +5,7 @@ import * as styles from './ReviewCard.css';
 interface CardReviewProps {
   title: string;
   body: string;
-  tags: [string, string];
+  tags: string[];
   isBorder?: boolean;
 }
 
@@ -20,8 +20,8 @@ const CardReview = ({
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.body}>{body}</p>
       <div className={styles.tagRow}>
-        {tags.map((tag) => (
-          <Tag key={tag} text={tag} size="small" color="gray" />
+        {tags.map((tag, tagIndex) => (
+          <Tag key={tagIndex} text={tag} size="small" color="gray" />
         ))}
       </div>
     </article>

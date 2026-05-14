@@ -8,14 +8,14 @@ export const container = recipe({
   base: {
     display: 'flex',
     flexDirection: 'column',
-    padding: '1.6rem',
+    padding: '0.8rem 0',
     width: '100%',
   },
 
   variants: {
     isBorder: {
       true: {
-        border: `1px solid ${color.gray200}`,
+        borderBottom: `1px solid ${color.gray100}`,
       },
       false: {},
     },
@@ -26,16 +26,10 @@ export const container = recipe({
   },
 });
 
-export const titleBodyWrapper = style({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '0.4rem',
-  marginBottom: '0.8rem',
-});
-
 export const title = style({
   ...typography.body_sb_16,
   color: color.gray800,
+  marginBottom: '0.4rem',
 });
 
 export const body = style({
@@ -45,9 +39,10 @@ export const body = style({
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
   color: color.gray700,
+  marginBottom: '0.8rem',
 });
 
 export const tagRow = style({
   display: 'flex',
-  gap: '0.8rem',
+  gap: '0.6rem',
 });
