@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import SvgIcRefresh from '@assets/svg/IcRefresh';
 import SvgIcXGray900 from '@assets/svg/IcXGray900';
 import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
-import { CONTENT_RESULT } from '@pages/recruit/constants/resultNumber';
 import type { FilterValues } from '@pages/recruit/types/filter';
+import { getResultCount } from '@pages/recruit/utils/resultNumber';
 
 import FilterSelector from './FilterSelector';
 
@@ -23,25 +23,6 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
     employmentTypes: [],
     regions: [],
   });
-
-  // 결과 개수
-  const getResultCount = (selectedFilters: FilterValues) => {
-    const { jobCategories } = selectedFilters;
-
-    if (jobCategories.length === 0) return CONTENT_RESULT.default;
-    if (jobCategories.length === 1 && jobCategories.includes('영업/고객상담'))
-      return CONTENT_RESULT.sales;
-    if (jobCategories.length === 1 && jobCategories.includes('경영/사무'))
-      return CONTENT_RESULT.business;
-    if (
-      jobCategories.length === 2 &&
-      jobCategories.includes('경영/사무') &&
-      jobCategories.includes('영업/고객상담')
-    )
-      return CONTENT_RESULT.salesAndBusiness;
-
-    return CONTENT_RESULT.default;
-  };
 
   const resultCount = getResultCount(selectedFilters);
 
