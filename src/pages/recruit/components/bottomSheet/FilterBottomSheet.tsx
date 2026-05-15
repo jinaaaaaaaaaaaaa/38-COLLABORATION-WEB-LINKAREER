@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import clsx from 'clsx';
 
 import SvgIcRefresh from '@assets/svg/IcRefresh';
@@ -13,22 +12,24 @@ import * as styles from './FilterBottomSheet.css';
 
 interface FilterBottomSheetProps {
   isOpen: boolean;
+  draftFilters: FilterValues;
+  setDraftFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
   onClose: () => void;
+  onApply: () => void;
 }
 
-const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
-  const [selectedFilters, setSelectedFilters] = useState<FilterValues>({
-    jobCategories: [],
-    companyTypes: [],
-    employmentTypes: [],
-    regions: [],
-  });
-
-  const resultCount = getResultCount(selectedFilters);
+const FilterBottomSheet = ({
+  isOpen,
+  draftFilters,
+  setDraftFilters,
+  onClose,
+  onApply,
+}: FilterBottomSheetProps) => {
+  const resultCount = getResultCount(draftFilters);
 
   // 새로고침 버튼
   const handleRefreshClick = () => {
-    setSelectedFilters({
+    setDraftFilters({
       jobCategories: [],
       companyTypes: [],
       employmentTypes: [],
@@ -37,7 +38,7 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
   };
 
   const handleApplyClick = () => {
-    onClose();
+    onApply();
   };
 
   return (
@@ -67,8 +68,8 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
 
         <FilterSelector
           isOpen={isOpen}
-          selectedFilters={selectedFilters}
-          setSelectedFilters={setSelectedFilters}
+          selectedFilters={draftFilters}
+          setSelectedFilters={setDraftFilters}
         />
 
         <BottomActionBar
