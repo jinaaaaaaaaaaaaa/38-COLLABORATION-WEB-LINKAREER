@@ -4,7 +4,6 @@ import SvgIcRefresh from '@assets/svg/IcRefresh';
 import SvgIcXGray900 from '@assets/svg/IcXGray900';
 import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
 import type { FilterValues } from '@pages/recruit/types/filter';
-import { getResultCount } from '@pages/recruit/utils/resultNumber';
 
 import FilterSelector from './FilterSelector';
 
@@ -12,6 +11,7 @@ import * as styles from './FilterBottomSheet.css';
 
 interface FilterBottomSheetProps {
   isOpen: boolean;
+  resultCount?: string | number;
   appliedFilters: FilterValues;
   setAppliedFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
   onClose: () => void;
@@ -20,13 +20,12 @@ interface FilterBottomSheetProps {
 
 const FilterBottomSheet = ({
   isOpen,
+  resultCount,
   appliedFilters,
   setAppliedFilters,
   onClose,
   onApply,
 }: FilterBottomSheetProps) => {
-  const resultCount = getResultCount(appliedFilters);
-
   // 새로고침 버튼
   const handleRefreshClick = () => {
     setAppliedFilters({

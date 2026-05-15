@@ -7,7 +7,7 @@ import { DROPDOWN_OPTIONS } from '@pages/recruit/constants/dropdown';
 import * as styles from './listControlBar.css';
 
 interface ListControlBarProps {
-  resultCount?: number;
+  resultCount?: string | number;
 }
 
 const ListControlBar = ({ resultCount }: ListControlBarProps) => {

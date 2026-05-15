@@ -9,6 +9,7 @@ import FilterBar from './components/filterBar/FilterBar';
 import ListControlBar from './components/listControlBar/listControlBar';
 import { FILTER_OPTIONS } from './constants/filterOptions';
 import type { FilterValues } from './types/filter';
+import { getResultCount } from './utils/resultNumber';
 
 const RecruitPage = () => {
   const [selectedTab, setSelectedTab] = useState('recruit');
@@ -20,6 +21,8 @@ const RecruitPage = () => {
     employmentTypes: [],
     regions: [],
   });
+
+  const resultCount = getResultCount(appliedFilters);
 
   const handleTabChange = (value: string) => {
     setSelectedTab(value);
@@ -57,10 +60,11 @@ const RecruitPage = () => {
         onOpenSheet={handleOpenSheet}
       />
 
-      <ListControlBar resultCount={517} />
+      <ListControlBar resultCount={resultCount} />
 
       <FilterBottomSheet
         isOpen={isSheetOpen}
+        resultCount={resultCount}
         appliedFilters={appliedFilters}
         setAppliedFilters={setAppliedFilters}
         onClose={handleCloseSheet}
