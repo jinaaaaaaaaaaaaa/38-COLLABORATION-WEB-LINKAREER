@@ -4,6 +4,13 @@ import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const container = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.6rem',
+  width: '34.3rem',
+});
+
+export const card = style({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
@@ -91,5 +98,30 @@ export const companySize = style({
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
+  ...typography.caption_r_12,
+});
+
+export const announcementInfo = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.4rem',
+  width: '100%',
+});
+
+export const announcementTitle = style({
+  width: '100%',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  color: vars.color.gray900,
+  ...typography.title_b_18,
+});
+
+export const announcementMeta = style({
+  width: '100%',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  color: vars.color.gray500,
   ...typography.caption_r_12,
 });
