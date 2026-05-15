@@ -77,11 +77,11 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="검색 필터"
+        aria-labelledby="검색필터"
         className={clsx(styles.container, isOpen && styles.containerOpen)}
       >
         <header className={styles.headerContainer}>
-          <h2 id="검색 필터" className={styles.title}>
+          <h2 id="검색필터" className={styles.title}>
             검색 필터
           </h2>
           <button
