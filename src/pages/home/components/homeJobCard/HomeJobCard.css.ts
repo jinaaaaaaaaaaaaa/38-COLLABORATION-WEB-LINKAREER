@@ -24,9 +24,9 @@ export const logoImage = style({
   width: '8.8rem',
   height: '8.8rem',
   flexShrink: 0,
-  aspectRatio: 1 / 1,
+  aspectRatio: '1 / 1',
   borderRadius: '1.2rem',
-  border: `1px solid color: ${vars.color.gray300}`,
+  border: `1px solid ${vars.color.gray300}`,
   objectFit: 'cover',
 });
 
