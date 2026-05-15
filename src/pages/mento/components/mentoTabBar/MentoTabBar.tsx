@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
 import Chip from '@components/chip/Chip';
-import { MENTO_COMPANY_CHIPS } from '@pages/mento/constants/mentoChips';
+import {
+  MENTO_COMPANY_CHIPS,
+  type MentoCompanyChip,
+} from '@pages/mento/constants/mentoChips';
 
 import * as styles from './MentoTabBar.css';
 
 const MentoTabBar = () => {
-  const [selectedChip, setSelectedChip] = useState<string>();
+  const [selectedChip, setSelectedChip] = useState<MentoCompanyChip>('삼성');
   return (
     <div className={styles.container}>
       {MENTO_COMPANY_CHIPS.map((chip) => (
