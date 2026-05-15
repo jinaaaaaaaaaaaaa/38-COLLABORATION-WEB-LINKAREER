@@ -16,7 +16,6 @@ export const inputField = style({
   border: `1px solid ${vars.color.gray200}`,
   borderRadius: '0.8rem',
   padding: '0.8rem 1.6rem',
-  lineHeight: 'normal',
   selectors: {
     '&::placeholder': {
       color: vars.color.gray400,

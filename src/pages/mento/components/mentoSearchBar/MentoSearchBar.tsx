@@ -7,7 +7,9 @@ const MentoSearchBar = () => {
         className={styles.inputField}
         placeholder="삼성, 마케팅, 홍익대학교..."
       />
-      <button className={styles.button}>검색</button>
+      <button type="button" className={styles.button}>
+        검색
+      </button>
     </div>
   );
 };
