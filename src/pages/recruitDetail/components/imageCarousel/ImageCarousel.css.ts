@@ -5,16 +5,16 @@ import { typography } from '@styles/tokens/typography';
 
 export const container = style({
   position: 'relative',
-  overflow: 'hidden',
+  touchAction: 'none',
   width: '37.5rem',
   height: '24rem',
-  touchAction: 'none',
+  overflow: 'hidden',
 });
 
 export const track = style({
   display: 'flex',
-  height: '100%',
   willChange: 'transform',
+  height: '100%',
   userSelect: 'none',
 });
 
