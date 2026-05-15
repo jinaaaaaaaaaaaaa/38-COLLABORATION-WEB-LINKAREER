@@ -26,7 +26,7 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onBlur={() => setIsOpen(false)}>
       <button
         type="button"
         className={styles.trigger}
