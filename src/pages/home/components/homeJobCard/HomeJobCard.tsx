@@ -20,7 +20,6 @@ const HomeJobCard = ({
   onBookmarkClick,
 }: HomeJobCardProps) => {
   const BookmarkIcon = isBookmarked ? IcBookmarkFilled : IcBookmarkGray400;
-
   return (
     <article className={styles.card}>
       <img
@@ -34,7 +33,7 @@ const HomeJobCard = ({
 
         <div className={styles.bottomBox}>
           <span className={styles.dDay}>{dDay}</span>
-          <span>·</span>
+          <span className={styles.dot}>·</span>
           <span className={styles.category}>{category}</span>
         </div>
       </button>

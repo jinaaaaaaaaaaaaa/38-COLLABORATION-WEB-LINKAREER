@@ -61,6 +61,13 @@ export const dDay = style({
   color: vars.color.blue500,
 });
 
+export const dot = style({
+  width: '0.8rem',
+  textAlign: 'center',
+  ...typography.caption_m_12,
+  color: vars.color.gray500,
+});
+
 export const category = style({
   ...typography.caption_m_12,
   color: vars.color.gray500,
