@@ -1,15 +1,18 @@
 import useCarouselDrag from '@pages/recruitDetail/hooks/useCarouselDrag';
+import type { CarouselImage } from '@pages/recruitDetail/types/carousel';
 
 import * as styles from './ImageCarousel.css';
 
 interface ImageCarouselProps {
-  images: { id: number; url: string; alt?: string }[];
+  images: CarouselImage[];
 }
 
 const ImageCarousel = ({ images }: ImageCarouselProps) => {
   const { currentIndex, trackRef, dragHandlers } = useCarouselDrag(
     images.length,
   );
+
+  if (images.length === 0) return null;
 
   return (
     <div className={styles.container} {...dragHandlers}>
