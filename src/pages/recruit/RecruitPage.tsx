@@ -4,6 +4,8 @@ import { HOME_TABLIST } from '@constants/tabList';
 import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
+import ListControlBar from './components/listControlBar/listControlBar';
+
 const RecruitPage = () => {
   const [selectedTab, setSelectedTab] = useState('recruit');
 
@@ -25,6 +27,7 @@ const RecruitPage = () => {
         onChange={handleTabChange}
         ariaLabel="신입/인턴탭"
       />
+      <ListControlBar />
     </>
   );
 };
