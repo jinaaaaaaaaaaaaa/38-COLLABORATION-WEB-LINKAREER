@@ -50,7 +50,7 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
     )
       return CONTENT_RESULT.salesAndBusiness;
 
-    return 120316;
+    return CONTENT_RESULT.default;
   };
 
   const resultCount = getResultCount(selectedFilters);
@@ -77,11 +77,11 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="검색필터"
+        aria-labelledby="filter-sheet-title"
         className={clsx(styles.container, isOpen && styles.containerOpen)}
       >
         <header className={styles.headerContainer}>
-          <h2 id="검색필터" className={styles.title}>
+          <h2 id="filter-sheet-title" className={styles.title}>
             검색 필터
           </h2>
           <button
@@ -103,7 +103,7 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
         <BottomActionBar
           icon={<SvgIcRefresh width={'2rem'} height={'2rem'} />}
           iconAriaLabel="새로고침 버튼"
-          label={`${resultCount.toLocaleString()}개 공고보기`}
+          label={`${resultCount}개 공고보기`}
           onIconClick={handleRefreshClick}
           onLabelClick={handleApplyClick}
         />
