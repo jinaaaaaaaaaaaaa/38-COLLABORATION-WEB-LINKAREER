@@ -1,20 +1,21 @@
 import { style } from '@vanilla-extract/css';
+
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const card = style({
   display: 'flex',
-  width: '16rem',
   flexDirection: 'column',
   alignItems: 'stretch',
   gap: '1.6rem',
+  width: '16rem',
 });
 
 export const logoBox = style({
-  position: 'relative',
-  width: '16rem',
   aspectRatio: '1 / 1',
+  position: 'relative',
   borderRadius: '1.2rem',
+  width: '16rem',
   overflow: 'hidden',
 });
 
@@ -26,12 +27,12 @@ export const image = style({
 
 export const logoShadow = style({
   position: 'absolute',
-  left: 0,
   right: 0,
   bottom: 0,
-  height: '8rem',
+  left: 0,
   borderRadius: '0 0 1.2rem 1.2rem',
   background: vars.color.overlay90,
+  height: '8rem',
 });
 
 export const textBox = style({
@@ -45,10 +46,10 @@ export const title = style({
   display: '-webkit-box',
   height: '4.2rem',
   overflow: 'hidden',
-  WebkitLineClamp: 2,
-  WebkitBoxOrient: 'vertical',
-  ...typography.body_b_14,
   color: vars.color.gray900,
+  WebkitLineClamp: 2,
+  ...typography.body_b_14,
+  WebkitBoxOrient: 'vertical',
 });
 
 export const companyName = style({
@@ -59,8 +60,8 @@ export const companyName = style({
 export const bottomBox = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.4rem',
   alignSelf: 'stretch',
+  gap: '0.4rem',
 });
 
 export const dDay = style({
