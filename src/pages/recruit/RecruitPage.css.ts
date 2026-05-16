@@ -6,3 +6,10 @@ export const listContainer = style({
   gap: '1.2rem',
   padding: '0.8rem 1.6rem',
 });
+
+export const pagenationContainer = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '2.4rem 0',
+});

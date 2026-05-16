@@ -71,3 +71,6 @@ export const ENABLED_JOB_CATEGORIES: readonly string[] = [
   '영업/고객상담',
   '경영/사무',
 ];
+
+export const SALES_JOB = FILTER_OPTIONS.jobCategories[1];
+export const BUSINESS_JOB = FILTER_OPTIONS.jobCategories[2];
