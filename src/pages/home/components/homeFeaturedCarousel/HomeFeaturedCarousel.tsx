@@ -47,6 +47,7 @@ const HomeFeaturedCarousel = ({ items }: HomeFeaturedCarouselProps) => {
   const [dragOffset, setDragOffset] = useState(0);
   const dragStartX = useRef<number | null>(null);
   const dragOffsetRef = useRef(0);
+  const isDraggingRef = useRef(false);
   const isAnimatingRef = useRef(false);
   const shouldPreventClick = useRef(false);
   const transitionFrameIdsRef = useRef<number[]>([]);
@@ -130,15 +131,29 @@ const HomeFeaturedCarousel = ({ items }: HomeFeaturedCarouselProps) => {
 
     dragStartX.current = event.clientX;
     dragOffsetRef.current = 0;
+    isDraggingRef.current = false;
+    shouldPreventClick.current = false;
     setDragOffset(0);
-    setIsTransitionEnabled(false);
-    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
     if (dragStartX.current === null) return;
 
     const nextDragOffset = event.clientX - dragStartX.current;
+    const hasDragged =
+      Math.abs(nextDragOffset) > DRAG_CLICK_THRESHOLD_PX ||
+      isDraggingRef.current;
+
+    if (!hasDragged) return;
+
+    if (!isDraggingRef.current) {
+      isDraggingRef.current = true;
+      setIsTransitionEnabled(false);
+
+      if (!event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }
+    }
 
     dragOffsetRef.current = nextDragOffset;
     setDragOffset(nextDragOffset);
@@ -157,6 +172,7 @@ const HomeFeaturedCarousel = ({ items }: HomeFeaturedCarouselProps) => {
 
     const currentDragOffset = dragOffsetRef.current;
     shouldPreventClick.current =
+      isDraggingRef.current &&
       Math.abs(currentDragOffset) > DRAG_CLICK_THRESHOLD_PX;
 
     // 드래그 거리와 SWIPE_THRESHOLD_PX 비교하여 카드 이동 여부 판별
@@ -172,6 +188,7 @@ const HomeFeaturedCarousel = ({ items }: HomeFeaturedCarouselProps) => {
 
     dragStartX.current = null;
     dragOffsetRef.current = 0;
+    isDraggingRef.current = false;
     setDragOffset(0);
   };
 
