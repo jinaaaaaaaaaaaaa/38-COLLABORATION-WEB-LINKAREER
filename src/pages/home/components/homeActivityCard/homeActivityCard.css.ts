@@ -18,6 +18,12 @@ export const logoBox = style({
   overflow: 'hidden',
 });
 
+export const image = style({
+  display: 'block',
+  width: '100%',
+  height: '100%',
+});
+
 export const logoShadow = style({
   position: 'absolute',
   left: 0,
@@ -31,7 +37,6 @@ export const textBox = style({
   flexDirection: 'column',
   alignItems: 'flex-start',
   gap: '0.8rem',
-  alignSelf: 'stretch',
 });
 
 export const title = style({
