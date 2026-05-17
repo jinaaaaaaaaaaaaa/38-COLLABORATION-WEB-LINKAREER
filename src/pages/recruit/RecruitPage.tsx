@@ -9,7 +9,7 @@ import TabBar from '@components/tabBar/TabBar';
 import FilterBottomSheet from './components/bottomSheet/FilterBottomSheet';
 import EmptySection from './components/emptySection/EmptySection';
 import FilterBar from './components/filterBar/FilterBar';
-import ListControlBar from './components/listControlBar/listControlBar';
+import ListControlBar from './components/listControlBar/ListControlBar';
 import {
   BUSINESS_JOB,
   FILTER_OPTIONS,
