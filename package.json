@@ -11,7 +11,8 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "preview": "vite preview",
-    "svgr": "svgr -d src/shared/assets/svg --no-index --ignore-existing --typescript --no-dimensions --jsx-runtime automatic public/svg"
+    "svgr": "svgr -d src/shared/assets/svg --no-index --ignore-existing --typescript --no-dimensions --jsx-runtime automatic public/svg",
+    "api:generate": "node scripts/gen-api.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.9",
