@@ -1,3 +1,5 @@
+import { useId } from 'react';
+
 import SvgIcCheckWhite from '@assets/svg/IcCheckWhite';
 
 import * as styles from './Checkbox.css';
@@ -8,10 +10,12 @@ interface CheckboxProps {
 }
 
 const Checkbox = ({ checked, onChange }: CheckboxProps) => {
+  const id = useId();
+
   return (
-    <label htmlFor="checkbox" className={styles.container}>
+    <label htmlFor={id} className={styles.container}>
       <input
-        id="checkbox"
+        id={id}
         type="checkbox"
         className={styles.hiddenInput}
         checked={checked}
