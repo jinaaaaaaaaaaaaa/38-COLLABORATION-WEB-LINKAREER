@@ -49,6 +49,7 @@ const RecruitPage = () => {
 
   const handleApplyFilters = () => {
     setAppliedFilters(draftFilters);
+    setCurrentPage(1);
     setIsSheetOpen(false);
   };
 
