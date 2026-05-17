@@ -3,9 +3,11 @@ import { useRef, useState } from 'react';
 import detailImg1 from '@assets/images/detail_thumbnail_img1.webp';
 import detailImg2 from '@assets/images/detail_thumbnail_img2.webp';
 import detailImg3 from '@assets/images/detail_thumbnail_img3.webp';
+import detailImg4 from '@assets/images/detail_thumbnail_img4.webp';
 import TabBar from '@components/tabBar/TabBar';
 
 import ChatBanner from './components/chatBanner/ChatBanner';
+import DetailImageSection from './components/detailImageSection/DetailImageSection';
 import ImageCarousel from './components/imageCarousel/ImageCarousel';
 import RecruitDetailContent from './components/recruitDetailContent/RecruitDetailContent';
 import RecruitDetailInfoSection from './components/recruitDetailInfoSection/RecruitDetailInfoSection';
@@ -81,6 +83,13 @@ const RecruitDetailPage = () => {
           preferences={[...preferences]}
         />
       </div>
+      <RecruitDetailContent
+        recruitmentPeriod={recruitmentPeriod}
+        responsibilities={[...responsibilities]}
+        qualifications={[...qualifications]}
+        preferences={[...preferences]}
+      />
+      <DetailImageSection imageUrl={detailImg4} />
 
       <div ref={passDataRef}>{/* TODO: 합격 자료 컴포넌트 */}</div>
     </>
