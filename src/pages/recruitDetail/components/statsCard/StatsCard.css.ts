@@ -94,7 +94,7 @@ export const barList = style({
 export const barItem = style({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-end',
+  alignItems: 'center',
   justifyContent: 'flex-end',
   height: '100%',
 });
