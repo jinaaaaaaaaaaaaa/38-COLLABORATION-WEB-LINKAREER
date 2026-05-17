@@ -11,7 +11,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <main>
       <SearchBar />
       <TabBar
         tabList={HOME_TABLIST}
@@ -22,7 +22,7 @@ const HomePage = () => {
         }}
       />
       <HomeFeaturedCarousel items={HOME_FEATURED_CAROUSEL_ITEMS} />
-    </>
+    </main>
   );
 };
 export default HomePage;
