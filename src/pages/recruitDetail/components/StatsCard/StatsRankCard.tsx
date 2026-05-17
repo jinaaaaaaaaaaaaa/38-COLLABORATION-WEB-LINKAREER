@@ -1,8 +1,10 @@
-import DetailUniversity from '@shared/assets/svg/DetailUniversity';
 import DetailJob from '@shared/assets/svg/DetailJob';
 import DetailMajor from '@shared/assets/svg/DetailMajor';
+import DetailUniversity from '@shared/assets/svg/DetailUniversity';
+
 import StatsCardBase from './StatsCardBase';
-import * as styles from './StatsRankCard.css';
+
+import * as styles from './statsCard.css';
 
 interface RankItem {
   rank: number;

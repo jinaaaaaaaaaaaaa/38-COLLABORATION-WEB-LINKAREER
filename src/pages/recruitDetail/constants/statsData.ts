@@ -30,3 +30,7 @@ export const STATS_AGE_DATA = [
   { label: '41~45세', percent: 0 },
   { label: '46세이상', percent: 0 },
 ] as const;
+
+export const STATS_AGE_DATA_MAX = Math.max(
+  ...STATS_AGE_DATA.map((d) => d.percent),
+);

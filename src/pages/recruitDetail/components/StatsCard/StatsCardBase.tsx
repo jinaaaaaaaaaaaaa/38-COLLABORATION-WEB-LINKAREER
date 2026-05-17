@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import * as styles from './StatsCardBase.css';
+
+import * as styles from './statsCard.css';
 
 interface StatsCardBaseProps {
   icon: ReactNode;
