@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 import SvgIcRefresh from '@assets/svg/IcRefresh';
@@ -26,9 +27,17 @@ const FilterBottomSheet = ({
   onClose,
   onApply,
 }: FilterBottomSheetProps) => {
+  const [tempFilters, setTempFilters] = useState<FilterValues>(appliedFilters);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTempFilters(appliedFilters);
+    }
+  }, [isOpen, appliedFilters]);
+
   // 새로고침 버튼
   const handleRefreshClick = () => {
-    setAppliedFilters({
+    setTempFilters({
       jobCategories: [],
       companyTypes: [],
       employmentTypes: [],
@@ -37,6 +46,7 @@ const FilterBottomSheet = ({
   };
 
   const handleApplyClick = () => {
+    setAppliedFilters(tempFilters);
     onApply();
   };
 
@@ -67,8 +77,8 @@ const FilterBottomSheet = ({
 
         <FilterSelector
           isOpen={isOpen}
-          selectedFilters={appliedFilters}
-          setSelectedFilters={setAppliedFilters}
+          selectedFilters={tempFilters}
+          setSelectedFilters={setTempFilters}
         />
 
         <BottomActionBar
