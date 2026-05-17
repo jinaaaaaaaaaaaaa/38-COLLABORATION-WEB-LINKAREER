@@ -94,6 +94,15 @@ export const buttonBox = style({
   gap: '1rem',
   borderRadius: '0.8rem',
   border: `1px solid ${vars.color.blue500}`,
+  selectors: {
+    '&:focus': {
+      outline: 'none',
+    },
+    '&:focus-visible': {
+      outline: `2px solid ${vars.color.blue200}`,
+      outlineOffset: '2px',
+    },
+  },
 });
 
 export const buttonText = style({
