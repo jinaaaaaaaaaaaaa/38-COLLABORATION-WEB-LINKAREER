@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const section = style({
@@ -19,14 +19,14 @@ export const sectionHeader = style({
 
 export const sectionTitle = style({
   ...typography.title_sb_18,
-  color: color.gray900,
+  color: vars.color.gray900,
 });
 
 export const moreButton = style({
   display: 'flex',
   alignItems: 'center',
   ...typography.body_m_14,
-  color: color.gray500,
+  color: vars.color.gray600,
 });
 
 export const viewport = style({

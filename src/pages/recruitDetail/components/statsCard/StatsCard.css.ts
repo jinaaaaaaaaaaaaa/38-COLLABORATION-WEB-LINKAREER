@@ -1,14 +1,14 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 // 공통 베이스
 export const container = style({
   flexShrink: 0,
-  border: `1px solid ${color.gray100}`,
+  border: `1px solid ${vars.color.gray100}`,
   borderRadius: '1.2rem',
-  backgroundColor: color.white,
+  backgroundColor: vars.color.white,
   padding: '2rem',
   width: '34.3rem',
   minHeight: '24.9rem',
@@ -16,13 +16,13 @@ export const container = style({
 export const header = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.8rem',
+  gap: '0.4rem',
   marginBottom: '1.6rem',
 });
 
 export const title = style({
-  ...typography.body_b_16,
-  color: color.gray900,
+  ...typography.body_sb_16,
+  color: vars.color.gray900,
 });
 
 // StatsRankCard
@@ -41,7 +41,7 @@ export const item = style({
 export const leftContent = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '1.2rem',
+  gap: '0.4rem',
 });
 
 export const rank = style({
@@ -50,22 +50,22 @@ export const rank = style({
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '0.4rem',
-  backgroundColor: color.blue50,
+  backgroundColor: vars.color.blue50,
   width: '2rem',
   height: '2rem',
-  ...typography.body_m_14,
+  ...typography.body_r_14,
   textAlign: 'center',
-  color: color.blue500,
+  color: vars.color.blue500,
 });
 
 export const label = style({
   ...typography.body_r_14,
-  color: color.gray900,
+  color: vars.color.gray900,
 });
 
 export const percent = style({
   ...typography.body_m_14,
-  color: color.blue500,
+  color: vars.color.blue500,
 });
 
 // StatsAgeCard
@@ -76,12 +76,12 @@ export const chartArea = style({
 
 export const activePercent = style({
   ...typography.caption_m_12,
-  color: color.blue500,
+  color: vars.color.blue500,
 });
 
 export const inactivePercent = style({
   ...typography.caption_r_12,
-  color: color.gray700,
+  color: vars.color.gray700,
 });
 
 export const barList = style({
@@ -94,16 +94,15 @@ export const barList = style({
 export const barItem = style({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: 'flex-end',
   justifyContent: 'flex-end',
-  gap: '0.62rem',
   height: '100%',
 });
 
 export const barTrack = style({
   position: 'relative',
   borderRadius: '9999px',
-  backgroundColor: color.gray100,
+  backgroundColor: vars.color.gray100,
   width: '1.5rem',
   height: '11.9rem',
   overflow: 'hidden',
@@ -115,7 +114,7 @@ export const barFill = style({
   bottom: 0,
   left: 0,
   borderRadius: '9999px',
-  backgroundColor: color.blue500,
+  backgroundColor: vars.color.blue500,
 });
 
 export const barFillInactive = style({
@@ -124,12 +123,12 @@ export const barFillInactive = style({
   bottom: 0,
   left: 0,
   borderRadius: '9999px',
-  backgroundColor: color.gray200,
+  backgroundColor: vars.color.gray200,
 });
 
 export const ageLabel = style({
   ...typography.caption_r_12,
   textAlign: 'center',
   whiteSpace: 'nowrap',
-  color: color.gray900,
+  color: vars.color.gray900,
 });
