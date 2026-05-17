@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 import SvgIcRefresh from '@assets/svg/IcRefresh';
@@ -13,8 +12,8 @@ import * as styles from './FilterBottomSheet.css';
 interface FilterBottomSheetProps {
   isOpen: boolean;
   resultCount?: string | number;
-  appliedFilters: FilterValues;
-  setAppliedFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
+  selectedFilters: FilterValues;
+  setSelectedFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
   onClose: () => void;
   onApply: () => void;
 }
@@ -22,32 +21,19 @@ interface FilterBottomSheetProps {
 const FilterBottomSheet = ({
   isOpen,
   resultCount,
-  appliedFilters,
-  setAppliedFilters,
+  selectedFilters,
+  setSelectedFilters,
   onClose,
   onApply,
 }: FilterBottomSheetProps) => {
-  const [tempFilters, setTempFilters] = useState<FilterValues>(appliedFilters);
-
-  useEffect(() => {
-    if (isOpen) {
-      setTempFilters(appliedFilters);
-    }
-  }, [isOpen, appliedFilters]);
-
   // 새로고침 버튼
   const handleRefreshClick = () => {
-    setTempFilters({
+    setSelectedFilters({
       jobCategories: [],
       companyTypes: [],
       employmentTypes: [],
       regions: [],
     });
-  };
-
-  const handleApplyClick = () => {
-    setAppliedFilters(tempFilters);
-    onApply();
   };
 
   return (
@@ -77,8 +63,8 @@ const FilterBottomSheet = ({
 
         <FilterSelector
           isOpen={isOpen}
-          selectedFilters={tempFilters}
-          setSelectedFilters={setTempFilters}
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
         />
 
         <BottomActionBar
@@ -86,7 +72,7 @@ const FilterBottomSheet = ({
           iconAriaLabel="새로고침 버튼"
           label={`${resultCount}개 공고보기`}
           onIconClick={handleRefreshClick}
-          onLabelClick={handleApplyClick}
+          onLabelClick={onApply}
         />
       </div>
     </>

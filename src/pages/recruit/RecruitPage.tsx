@@ -32,6 +32,7 @@ const RecruitPage = () => {
     employmentTypes: [],
     regions: [],
   });
+  const [draftFilters, setDraftFilters] = useState<FilterValues>(appliedFilters);
 
   const selectedJob = appliedFilters.jobCategories[0];
   const totalPages =
@@ -45,10 +46,12 @@ const RecruitPage = () => {
   };
 
   const handleApplyFilters = () => {
+    setAppliedFilters(draftFilters);
     setIsSheetOpen(false);
   };
 
   const handleOpenSheet = () => {
+    setDraftFilters(appliedFilters);
     setIsSheetOpen(true);
   };
 
@@ -107,8 +110,8 @@ const RecruitPage = () => {
       <FilterBottomSheet
         isOpen={isSheetOpen}
         resultCount={resultCount}
-        appliedFilters={appliedFilters}
-        setAppliedFilters={setAppliedFilters}
+        selectedFilters={draftFilters}
+        setSelectedFilters={setDraftFilters}
         onClose={handleCloseSheet}
         onApply={handleApplyFilters}
       />
