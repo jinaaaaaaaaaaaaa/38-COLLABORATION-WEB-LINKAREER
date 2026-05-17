@@ -21,14 +21,16 @@ const HomeJobCard = ({
   onBookmarkClick,
 }: HomeJobCardProps) => {
   const BookmarkIcon = isBookmarked ? IcBookmarkFilled : IcBookmarkGray400;
+
   return (
-    <article className={styles.card}>
+    <article className={styles.card} onClick={onCardClick}>
       <img
         src={logoUrl}
         className={styles.logoImage}
         alt={`${companyName} 로고`}
       />
-      <button type="button" className={styles.textBox} onClick={onCardClick}>
+
+      <div className={styles.textBox}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.companyName}>{companyName}</p>
 
@@ -37,12 +39,17 @@ const HomeJobCard = ({
           <span className={styles.dot}>·</span>
           <span className={styles.category}>{category}</span>
         </div>
-      </button>
+      </div>
 
       <button
         type="button"
         className={styles.bookmarkBox}
-        onClick={onBookmarkClick}
+        aria-label={isBookmarked ? '북마크 해제' : '북마크 추가'}
+        aria-pressed={isBookmarked}
+        onClick={(e) => {
+          e.stopPropagation();
+          onBookmarkClick();
+        }}
       >
         <BookmarkIcon className={styles.bookmarkIcon} />
         <span className={styles.bookmarkText}>{bookmarkCount}</span>
