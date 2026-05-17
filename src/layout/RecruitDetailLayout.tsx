@@ -1,0 +1,47 @@
+import { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router';
+
+import IcBookmarkFilled from '@assets/svg/IcBookmarkFilled';
+import IcBookmarkGray400 from '@assets/svg/IcBookmarkGray400';
+import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
+import RecruitDetailHeader from '@pages/recruitDetail/components/recruitDetailHeader/RecruitDetailHeader';
+import TopBtn from '@pages/recruitDetail/components/topBtn/TopBtn';
+
+import * as styles from './RecruitDetailLayout.css';
+
+const RecruitDetailLayout = () => {
+  const navigate = useNavigate();
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const handleBookmark = () => setIsBookmarked((prev) => !prev);
+
+  return (
+    <>
+      <RecruitDetailHeader
+        onBack={() => void navigate(-1)}
+        onShare={() => {}}
+      />
+      <Outlet />
+      <div className={styles.topBtnWrapper}>
+        <TopBtn />
+      </div>
+      <div className={styles.bottomBarWrapper}>
+        <BottomActionBar
+          icon={
+            isBookmarked ? (
+              <IcBookmarkFilled width={20} height={20} />
+            ) : (
+              <IcBookmarkGray400 width={20} height={20} />
+            )
+          }
+          iconAriaLabel={isBookmarked ? '북마크 해제' : '북마크 저장'}
+          label="홈페이지 지원"
+          onIconClick={handleBookmark}
+          onLabelClick={() => {}}
+        />
+      </div>
+    </>
+  );
+};
+
+export default RecruitDetailLayout;
