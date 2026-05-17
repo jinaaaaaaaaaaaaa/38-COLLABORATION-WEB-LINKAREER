@@ -6,7 +6,7 @@ import DetailAge from '@shared/assets/svg/DetailAge';
 
 import StatsCardBase from './StatsCardBase';
 
-import * as styles from './statsCard.css';
+import * as styles from './StatsCard.css';
 
 const StatsAgeCard = () => {
   return (

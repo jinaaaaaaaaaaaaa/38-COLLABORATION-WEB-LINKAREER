@@ -4,7 +4,7 @@ import DetailUniversity from '@shared/assets/svg/DetailUniversity';
 
 import StatsCardBase from './StatsCardBase';
 
-import * as styles from './statsCard.css';
+import * as styles from './StatsCard.css';
 
 interface RankItem {
   rank: number;

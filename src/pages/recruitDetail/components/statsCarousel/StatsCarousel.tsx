@@ -1,6 +1,6 @@
 import Indicator from '@pages/recruitDetail/components/indicator/Indicator';
-import StatsAgeCard from '@pages/recruitDetail/components/StatsCard/StatsAgeCard';
-import StatsRankCard from '@pages/recruitDetail/components/StatsCard/StatsRankCard';
+import StatsAgeCard from '@pages/recruitDetail/components/statsCard/StatsAgeCard';
+import StatsRankCard from '@pages/recruitDetail/components/statsCard/StatsRankCard';
 import {
   STATS_JOB_DATA,
   STATS_MAJOR_DATA,
