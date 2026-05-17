@@ -5,6 +5,7 @@ import { typography } from '@styles/tokens/typography';
 
 // 공통 베이스
 export const container = style({
+  flexShrink: 0,
   border: `1px solid ${color.gray100}`,
   borderRadius: '1.2rem',
   backgroundColor: color.white,
@@ -12,7 +13,6 @@ export const container = style({
   width: '34.3rem',
   minHeight: '24.9rem',
 });
-
 export const header = style({
   display: 'flex',
   alignItems: 'center',
