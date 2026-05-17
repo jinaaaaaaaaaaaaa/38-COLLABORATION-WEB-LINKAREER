@@ -6,7 +6,7 @@ interface UseCarouselDragOptions {
   isLoop?: boolean;
 }
 
-const getSlideWidth = (trackRef: React.RefObject<HTMLDivElement>) => {
+const getSlideWidth = (trackRef: React.RefObject<HTMLDivElement | null>) => {
   if (!trackRef.current) return 375;
   const firstChild = trackRef.current.children[0] as HTMLElement;
   if (!firstChild) return 375;
@@ -19,7 +19,7 @@ const useCarouselDrag = (
   { isLoop = false }: UseCarouselDragOptions = {},
 ) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
   const startXRef = useRef(0);
   const isDraggingRef = useRef(false);
 
