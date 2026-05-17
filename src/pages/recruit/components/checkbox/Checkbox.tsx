@@ -17,7 +17,7 @@ const Checkbox = ({ checked, onChange }: CheckboxProps) => {
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
       />
-      <div className={styles.checkbox}>
+      <div className={styles.checkbox} aria-hidden="true">
         {checked && <SvgIcCheckWhite width={'1.6rem'} height={'1.6rem'} />}
       </div>
     </label>
