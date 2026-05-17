@@ -7,8 +7,11 @@ export const wrapper = style({
   alignItems: 'center',
   justifyContent: 'center',
   gap: '0.8rem',
+  margin: '0 auto',
   borderTop: `1px solid ${color.gray200}`,
+  backgroundColor: color.white,
   padding: '1.2rem 1.6rem',
+  maxWidth: '37.5rem',
 });
 
 export const iconButton = style({
