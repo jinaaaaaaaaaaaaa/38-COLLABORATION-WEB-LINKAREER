@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import type { RecruitmentResponse } from '@apis/__generated__/data-contracts';
 import { HTTPMethod, request, type RequestConfig } from '@apis/config/request';
 import type { FilterValues } from '@pages/recruit/types/filter';
+import type { RecruitListItem } from '@shared/types/recruitCard';
 
 const buildRecruitQuery = (
   filters?: FilterValues,
@@ -38,7 +39,7 @@ export const getRecruitData = (filters?: FilterValues) => {
 };
 
 export const useGetRecruitQuery = (filters?: FilterValues) => {
-  return useQuery({
+  return useQuery<RecruitmentResponse[], Error, RecruitListItem[]>({
     queryKey: [...QUERY_KEY.RECRUIT, filters],
     queryFn: () => getRecruitData(filters),
     select: (data) =>
