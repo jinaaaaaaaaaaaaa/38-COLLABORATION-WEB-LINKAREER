@@ -13,6 +13,7 @@ import ImageCarousel from './components/imageCarousel/ImageCarousel';
 import RecruitDetailContent from './components/recruitDetailContent/RecruitDetailContent';
 import RecruitDetailInfoSection from './components/recruitDetailInfoSection/RecruitDetailInfoSection';
 import ReviewSection from './components/reviewSection/ReviewSection';
+import StatsCarousel from './components/statsCarousel/StatsCarousel';
 import TopBtn from './components/topBtn/TopBtn';
 import { MOCK_AI_RECOMMEND } from './mockAiRecommend';
 import { MOCK_PASS_COVER_LETTER } from './mockPassCoverLetter';
@@ -93,7 +94,7 @@ const RecruitDetailPage = () => {
           preferences={[...preferences]}
         />
         <DetailImageSection imageUrl={detailImg4} />
-        {/* TODO: 스크랩 유저 통계 머지시 반영 예정 */}
+        <StatsCarousel />
       </div>
 
       <div ref={passDataRef} className={styles.passDataWrapper}>
