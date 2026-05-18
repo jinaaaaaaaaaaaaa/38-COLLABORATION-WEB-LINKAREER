@@ -5,21 +5,13 @@ import { typography } from '@styles/tokens/typography';
 
 export const card = style({
   display: 'flex',
-  alignItems: 'flex-start',
-  gap: '1rem',
+  flexDirection: 'column',
+  gap: '1.6rem',
   border: `1px solid ${vars.color.gray300}`,
   borderRadius: '1.2rem',
   padding: '0.8rem',
   width: '13.6rem',
   height: '21rem',
-});
-
-export const contentContainer = style({
-  display: 'flex',
-  flexDirection: 'column',
-  flexShrink: 0,
-  gap: '1.6rem',
-  width: '100%',
 });
 
 export const infoContainer = style({
