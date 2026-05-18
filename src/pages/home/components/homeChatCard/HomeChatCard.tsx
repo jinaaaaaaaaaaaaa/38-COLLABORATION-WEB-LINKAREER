@@ -1,7 +1,7 @@
 import IcCerti from '@assets/svg/IcCerti';
+import Button from '@shared/components/button/Button';
 
 import * as styles from './HomeChatCard.css';
-import Button from '@shared/components/button/Button';
 
 interface HomeChatCardProps {
   logoUrl: string;
