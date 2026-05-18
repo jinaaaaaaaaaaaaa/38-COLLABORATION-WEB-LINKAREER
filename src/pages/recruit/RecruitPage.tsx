@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { HOME_TABLIST } from '@constants/tabList';
+import { useNavigate } from 'react-router';
 
 import RecruitCard from '@components/card/recruitCard/RecruitCard';
 import Pagination from '@components/pagenation/Pagenation';
@@ -22,6 +23,7 @@ import { getResultCount } from './utils/resultNumber';
 import * as styles from './RecruitPage.css';
 
 const RecruitPage = () => {
+  const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState('recruit');
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,6 +68,10 @@ const RecruitPage = () => {
 
   const handleCloseSheet = () => {
     setIsSheetOpen(false);
+  };
+
+  const goToDetailPage = () => {
+    void navigate(`/recruit/detail`);
   };
 
   const tabListWithoutDot = HOME_TABLIST.map((tab) => ({
