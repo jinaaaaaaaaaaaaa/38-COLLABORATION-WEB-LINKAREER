@@ -34,7 +34,7 @@ const HomeJobSection = () => {
     <section className={styles.mainContainer}>
       <HomeSectionHeader title="지금 지원 가능한 신입/인턴" to="/recruit" />
 
-      <div className={styles.activityList}>
+      <div className={styles.jobList}>
         {jobCards.map((job) => (
           <HomeJobCard
             key={job.id}

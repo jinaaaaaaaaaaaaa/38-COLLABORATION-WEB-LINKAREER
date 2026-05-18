@@ -3,7 +3,7 @@ import Button from '@shared/components/button/Button';
 
 import * as styles from './HomeChatCard.css';
 
-interface HomeChatCardProps {
+export interface HomeChatCardProps {
   logoUrl: string;
   companyName: string;
   participantCount: number;

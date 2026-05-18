@@ -9,7 +9,7 @@ export const mainContainer = style({
   alignSelf: 'stretch',
 });
 
-export const activityList = style({
+export const jobList = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.6rem',
