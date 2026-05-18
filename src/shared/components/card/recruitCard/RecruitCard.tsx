@@ -3,34 +3,20 @@ import { useState } from 'react';
 import SvgIcBookmarkFilled from '@assets/svg/IcBookmarkFilled';
 import SvgIcBookmarkGray400 from '@assets/svg/IcBookmarkGray400';
 import Tag from '@components/tag/Tag';
+import type { RecruitListItem } from '@shared/types/recruitCard';
 
 import * as styles from './RecruitCard.css';
 
 export interface RecruitCardProps {
-  id: number;
-  title?: string;
-  company?: string;
-  employmentType?: string;
-  location?: string;
-  imageUrl?: string;
-  deadlineLabel?: string;
+  recrutCardItem: RecruitListItem;
   onCardClick?: (id: number) => void;
 }
 
-const RecruitCard = ({
-  id,
-  title,
-  company,
-  employmentType,
-  imageUrl,
-  location,
-  deadlineLabel,
-  onCardClick,
-}: RecruitCardProps) => {
+const RecruitCard = ({ recrutCardItem, onCardClick }: RecruitCardProps) => {
   const [isBookmarked, setIsBookMarked] = useState(false);
 
   const handleCardClick = () => {
-    onCardClick?.(id);
+    onCardClick?.(recrutCardItem.id);
   };
 
   const handleCardKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -54,16 +40,23 @@ const RecruitCard = ({
       onKeyDown={handleCardKeyDown}
     >
       <div className={styles.imgContainer}>
-        {imageUrl && (
-          <img src={imageUrl} alt={company ? `${company} 로고` : '회사 로고'} />
+        {recrutCardItem.imageUrl && (
+          <img
+            src={recrutCardItem.imageUrl}
+            alt={
+              recrutCardItem.company
+                ? `${recrutCardItem.company} 로고`
+                : '회사 로고'
+            }
+          />
         )}
       </div>
 
       <div className={styles.contentContainer}>
         <header className={styles.topContainer}>
           <div className={styles.textContainer}>
-            <h3 className={styles.title}>{title}</h3>
-            <p className={styles.company}>{company}</p>
+            <h3 className={styles.title}>{recrutCardItem.title}</h3>
+            <p className={styles.company}>{recrutCardItem.company}</p>
           </div>
           <button
             type="button"
@@ -82,12 +75,18 @@ const RecruitCard = ({
 
         <div className={styles.bottomContainer}>
           <div className={styles.tagContainer}>
-            {employmentType && (
-              <Tag text={employmentType} color="gray" size="small" />
+            {recrutCardItem.employmentType && (
+              <Tag
+                text={recrutCardItem.employmentType}
+                color="gray"
+                size="small"
+              />
             )}
-            {location && <Tag text={location} color="blue" size="small" />}
+            {recrutCardItem.location && (
+              <Tag text={recrutCardItem.location} color="blue" size="small" />
+            )}
           </div>
-          <p className={styles.deadline}>{deadlineLabel}</p>
+          <p className={styles.deadline}>{recrutCardItem.deadlineLabel}</p>
         </div>
       </div>
     </div>
