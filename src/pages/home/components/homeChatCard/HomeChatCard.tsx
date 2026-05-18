@@ -17,7 +17,7 @@ const HomeChatCard = ({
   onJoinClick,
 }: HomeChatCardProps) => {
   return (
-    <article className={styles.card}>
+    <article className={styles.cardContainer}>
       <div className={styles.infoContainer}>
         <div className={styles.imageBox}>
           <img
@@ -27,7 +27,7 @@ const HomeChatCard = ({
           />
         </div>
 
-        <div className={styles.textBox}>
+        <div className={styles.textContainer}>
           <div className={styles.statusBox}>
             <IcCerti width="1.6rem" height="1.6rem" />
             <span className={styles.statusText}>현직자 대화중</span>
