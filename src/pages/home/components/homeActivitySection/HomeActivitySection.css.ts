@@ -14,4 +14,12 @@ export const activityList = style({
   alignItems: 'center',
   gap: '1.6rem',
   alignSelf: 'stretch',
+  overflowX: 'auto',
+  scrollBehavior: 'smooth',
+
+  selectors: {
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+  },
 });
