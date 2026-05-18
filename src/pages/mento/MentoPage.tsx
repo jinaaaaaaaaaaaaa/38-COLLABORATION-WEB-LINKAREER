@@ -1,13 +1,22 @@
 import { useState } from 'react';
 import { MENTO_CATEGORY_TABLIST, MENTO_MAIN_TABLIST } from '@constants/tabList';
 
-import mentoTopBannerImg from '@assets/images/mento-top-banner.webp';
-import Pagenation from '@components/pagenation/Pagenation';
+import mentoTopBannerImg from '@assets/images/img-mento-top-banner.webp';
+import Pagination from '@components/pagenation/Pagenation';
 import TabBar from '@components/tabBar/TabBar';
 
+import MentoCenterBanner from './components/mentoBanner/mentoCenterBanner/MentoCenterBanner';
 import MentoTopBanner from './components/mentoBanner/mentoTopBanner/MentoTopBanner';
+import MentoCardList from './components/mentoCardList/MentoCardList';
+import MentoListItem from './components/mentoListItem/MentoListItem';
 import MentoSearchBar from './components/mentoSearchBar/MentoSearchBar';
 import MentoTabBar from './components/mentoTabBar/MentoTabBar';
+import WriteButton from './components/writeButton/WriteButton';
+import { CARD_DATA } from './mocks/cardData';
+import { CENTER_AD_DATA } from './mocks/centerAdData';
+import { POST_DATA } from './mocks/postData';
+
+import * as styles from './MentoPage.css';
 
 const MentoPage = () => {
   const [selectedMainTab, setSelectedMainTab] = useState<string>(
@@ -16,29 +25,50 @@ const MentoPage = () => {
   const [selectedCategoryTab, setSelectedCategoryTab] = useState<string>(
     MENTO_CATEGORY_TABLIST[0].value,
   );
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <>
+    <div className={styles.pageContainer}>
       <TabBar
         tabList={MENTO_MAIN_TABLIST}
         ariaLabel="멘토페이지 메인 탭바"
         selectedValue={selectedMainTab}
         onChange={setSelectedMainTab}
       />
-      <TabBar
-        tabList={MENTO_CATEGORY_TABLIST}
-        ariaLabel="멘토페이지 카테고리 탭바"
-        selectedValue={selectedCategoryTab}
-        onChange={setSelectedCategoryTab}
-      />
+      <div className={styles.stickyContent}>
+        <TabBar
+          tabList={MENTO_CATEGORY_TABLIST}
+          ariaLabel="멘토페이지 카테고리 탭바"
+          selectedValue={selectedCategoryTab}
+          onChange={setSelectedCategoryTab}
+        />
+      </div>
       <MentoTopBanner imgSrc={mentoTopBannerImg} />
       <MentoSearchBar />
-      <div>
-        <p>맞춤 멘토에게 질문해보세요</p>
+      <section className={styles.mentoSection}>
+        <h2 className={styles.sectionTitle}>
+          <span className={styles.highlight}>맞춤 멘토</span>에게 질문해보세요
+        </h2>
+        <MentoCardList cardList={CARD_DATA} />
+      </section>
+      <section className={styles.postSection}>
+        <MentoTabBar />
+        <div className={styles.postList}>
+          {POST_DATA.map((post) => (
+            <MentoListItem key={post.id} post={post} />
+          ))}
+          <MentoCenterBanner ad={CENTER_AD_DATA} />
+        </div>
+      </section>
+      <div className={styles.pagenationContainer}>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={5}
+          onPageChange={setCurrentPage}
+        />
       </div>
-      <MentoTabBar />
-      <Pagenation currentPage={1} totalPages={5} onPageChange={() => {}} />
-    </>
+      <WriteButton />
+    </div>
   );
 };
 

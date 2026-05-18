@@ -6,4 +6,5 @@ export interface Card {
   title: string;
   acceptanceRate: number;
   answerCount: number;
+  tag: string[];
 }

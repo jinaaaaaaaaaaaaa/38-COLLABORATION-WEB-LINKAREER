@@ -3,7 +3,7 @@ import PageNumber from './PageNumber';
 
 import * as styles from './Pagenation.css';
 
-interface PagenationProps {
+interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
@@ -20,12 +20,12 @@ function getPageRange(current: number, total: number, maxVisible: number) {
   return { start, end };
 }
 
-const Pagenation = ({
+const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
   maxVisible = 5,
-}: PagenationProps) => {
+}: PaginationProps) => {
   if (totalPages <= 0) return null;
 
   const { start, end } = getPageRange(currentPage, totalPages, maxVisible);
@@ -57,4 +57,4 @@ const Pagenation = ({
   );
 };
 
-export default Pagenation;
+export default Pagination;
