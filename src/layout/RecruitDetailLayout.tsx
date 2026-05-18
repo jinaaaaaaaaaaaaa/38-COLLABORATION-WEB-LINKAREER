@@ -15,6 +15,12 @@ const RecruitDetailLayout = () => {
 
   const handleBookmark = () => setIsBookmarked((prev) => !prev);
 
+  const bookmarkIcon = isBookmarked ? (
+    <IcBookmarkFilled width={20} height={20} />
+  ) : (
+    <IcBookmarkGray400 width={20} height={20} />
+  );
+
   return (
     <>
       <RecruitDetailHeader
@@ -27,13 +33,7 @@ const RecruitDetailLayout = () => {
       </div>
       <div className={styles.bottomBarWrapper}>
         <BottomActionBar
-          icon={
-            isBookmarked ? (
-              <IcBookmarkFilled width={20} height={20} />
-            ) : (
-              <IcBookmarkGray400 width={20} height={20} />
-            )
-          }
+          icon={bookmarkIcon}
           iconAriaLabel={isBookmarked ? '북마크 해제' : '북마크 저장'}
           label="홈페이지 지원"
           onIconClick={handleBookmark}
