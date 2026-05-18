@@ -15,9 +15,9 @@ import RecruitDetailInfoSection from './components/recruitDetailInfoSection/Recr
 import ReviewSection from './components/reviewSection/ReviewSection';
 import StatsCarousel from './components/statsCarousel/StatsCarousel';
 import TopBtn from './components/topBtn/TopBtn';
-import { MOCK_AI_RECOMMEND } from './mockAiRecommend';
-import { MOCK_PASS_COVER_LETTER } from './mockPassCoverLetter';
-import { MOCK_RECRUIT_DETAIL } from './mockRecruitDetail';
+import { MOCK_AI_RECOMMEND } from './mocks/mockAiRecommend';
+import { MOCK_PASS_COVER_LETTER } from './mocks/mockPassCoverLetter';
+import { MOCK_RECRUIT_DETAIL } from './mocks/mockRecruitDetail';
 
 import * as styles from './RecruitDetailPage.css';
 
@@ -86,6 +86,8 @@ const RecruitDetailPage = () => {
         ariaLabel="채용 상세 탭"
       />
 
+      {/* 상세 내용 섹션 */}
+
       <div ref={detailRef} className={` ${styles.sectionAnchor}`}>
         <RecruitDetailContent
           recruitmentPeriod={recruitmentPeriod}
@@ -96,6 +98,8 @@ const RecruitDetailPage = () => {
         <DetailImageSection imageUrl={detailImg4} />
         <StatsCarousel />
       </div>
+
+      {/* 합격 자료 섹션 */}
 
       <div
         ref={passDataRef}
@@ -111,6 +115,8 @@ const RecruitDetailPage = () => {
         />
         <AiRecommendSection items={MOCK_AI_RECOMMEND} />
       </div>
+
+      {/* 플로팅 버튼 */}
 
       <div className={styles.topBtnWrapper}>
         <TopBtn

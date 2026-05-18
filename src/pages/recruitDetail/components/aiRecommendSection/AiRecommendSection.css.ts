@@ -12,7 +12,6 @@ export const container = style({
 });
 
 export const sectionTitle = style({
-  ...typography.title_b_20,
-  marginBottom: '0.8rem',
+  ...typography.title_sb_18,
   color: vars.color.gray900,
 });

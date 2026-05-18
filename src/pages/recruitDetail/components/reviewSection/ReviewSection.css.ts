@@ -15,17 +15,17 @@ export const header = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  padding: '0.8rem 0',
 });
 
 export const sectionTitle = style({
-  ...typography.title_b_20,
+  ...typography.title_sb_18,
   color: vars.color.blue500,
 });
 
 export const moreButton = style({
   display: 'flex',
   alignItems: 'center',
-  cursor: 'pointer',
-  ...typography.body_r_14,
-  color: vars.color.gray500,
+  ...typography.body_m_14,
+  color: vars.color.gray600,
 });

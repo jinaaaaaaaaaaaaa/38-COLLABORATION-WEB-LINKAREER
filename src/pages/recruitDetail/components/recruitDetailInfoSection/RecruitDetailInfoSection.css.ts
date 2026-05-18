@@ -13,7 +13,7 @@ export const infoWrapper = style({
 export const container = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.8rem',
+  gap: '0.4rem',
 });
 
 export const companyName = style({
@@ -22,7 +22,7 @@ export const companyName = style({
 });
 
 export const title = style({
-  ...typography.title_b_20,
+  ...typography.title_b_24,
   color: vars.color.gray900,
 });
 
@@ -49,7 +49,7 @@ export const conditionLabel = style({
   ...typography.body_r_14,
   flexShrink: 0,
   width: '6rem',
-  color: vars.color.gray500,
+  color: vars.color.gray600,
 });
 
 export const conditionValue = style({

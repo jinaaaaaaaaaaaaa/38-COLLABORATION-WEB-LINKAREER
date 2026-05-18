@@ -11,7 +11,7 @@ export const container = style({
   border: `1px solid ${vars.color.gray100}`,
   borderRadius: '1.2rem',
   backgroundColor: vars.color.white,
-  padding: '1.6rem',
+  padding: '2rem',
 });
 
 export const leftContent = style({

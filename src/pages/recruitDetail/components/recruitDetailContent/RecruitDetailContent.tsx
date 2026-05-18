@@ -14,9 +14,9 @@ const RecruitDetailContent = ({
   preferences,
 }: RecruitDetailContentProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <h2 className={styles.mainTitle}>상세내용</h2>
-      <div className={styles.container}>
+      <div className={styles.innerContainer}>
         <section className={styles.section}>
           <h3 className={styles.sectionTitle}>모집기간</h3>
           <p className={styles.periodText}>{recruitmentPeriod}</p>

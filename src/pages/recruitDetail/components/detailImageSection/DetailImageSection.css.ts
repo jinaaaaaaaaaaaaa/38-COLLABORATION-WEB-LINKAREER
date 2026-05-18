@@ -11,7 +11,7 @@ export const container = style({
 });
 
 export const sectionTitle = style({
-  ...typography.title_b_18,
+  ...typography.body_sb_16,
   color: vars.color.gray900,
 });
 
