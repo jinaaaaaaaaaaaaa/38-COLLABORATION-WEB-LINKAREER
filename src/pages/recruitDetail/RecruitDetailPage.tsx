@@ -13,9 +13,12 @@ import ImageCarousel from './components/imageCarousel/ImageCarousel';
 import RecruitDetailContent from './components/recruitDetailContent/RecruitDetailContent';
 import RecruitDetailInfoSection from './components/recruitDetailInfoSection/RecruitDetailInfoSection';
 import ReviewSection from './components/reviewSection/ReviewSection';
+import TopBtn from './components/topBtn/TopBtn';
 import { MOCK_AI_RECOMMEND } from './mockAiRecommend';
 import { MOCK_PASS_COVER_LETTER } from './mockPassCoverLetter';
 import { MOCK_RECRUIT_DETAIL } from './mockRecruitDetail';
+
+import * as styles from './RecruitDetailPage.css';
 
 const RECRUIT_DETAIL_TABS = [
   { label: '상세 내용', value: 'detail' },
@@ -24,6 +27,7 @@ const RECRUIT_DETAIL_TABS = [
 
 const RecruitDetailPage = () => {
   const [selectedTab, setSelectedTab] = useState('detail');
+  const pageTopRef = useRef<HTMLDivElement>(null);
   const detailRef = useRef<HTMLDivElement>(null);
   const passDataRef = useRef<HTMLDivElement>(null);
 
@@ -54,6 +58,7 @@ const RecruitDetailPage = () => {
 
   return (
     <>
+      <div ref={pageTopRef} />
       <ImageCarousel
         images={[
           { id: 1, url: detailImg1, alt: '대표 이미지 1' },
@@ -72,7 +77,6 @@ const RecruitDetailPage = () => {
         employmentType={employmentType}
       />
       <ChatBanner />
-
       <TabBar
         tabList={RECRUIT_DETAIL_TABS}
         selectedValue={selectedTab}
@@ -87,14 +91,6 @@ const RecruitDetailPage = () => {
           qualifications={[...qualifications]}
           preferences={[...preferences]}
         />
-
-        <RecruitDetailContent
-          recruitmentPeriod={recruitmentPeriod}
-          responsibilities={[...responsibilities]}
-          qualifications={[...qualifications]}
-          preferences={[...preferences]}
-        />
-
         <DetailImageSection imageUrl={detailImg4} />
         {/* TODO: 스크랩 유저 통계 머지시 반영 예정 */}
       </div>
@@ -108,8 +104,15 @@ const RecruitDetailPage = () => {
           sectionTitle="합격 후기"
           items={MOCK_PASS_COVER_LETTER}
         />
-
         <AiRecommendSection items={MOCK_AI_RECOMMEND} />
+      </div>
+
+      <div className={styles.topBtnWrapper}>
+        <TopBtn
+          onClick={() =>
+            pageTopRef.current?.scrollIntoView({ behavior: 'smooth' })
+          }
+        />
       </div>
     </>
   );
