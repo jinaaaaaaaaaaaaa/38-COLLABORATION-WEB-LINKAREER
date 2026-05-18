@@ -37,6 +37,7 @@ export const getResultCount = (
   const { jobCategories } = selectedFilters;
 
   if (hasAndFilters(selectedFilters) && dataCount != null) {
+    // 직무 외 필터가 하나라도 선택된 경우 실제 데이터 개수 반환
     return dataCount.toLocaleString();
   }
 
