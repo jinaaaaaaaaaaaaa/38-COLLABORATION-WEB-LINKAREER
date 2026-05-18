@@ -41,7 +41,6 @@ export const getRecruitData = (filters?: FilterValues) => {
 export const useGetRecruitQuery = (
   filters?: FilterValues,
   enabled?: boolean,
-  p0?: boolean,
 ) => {
   return useQuery<RecruitmentResponse[], Error, RecruitListItem[]>({
     queryKey: [...QUERY_KEY.RECRUIT, filters],
