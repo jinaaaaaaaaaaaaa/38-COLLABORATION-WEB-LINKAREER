@@ -29,7 +29,6 @@ const FilterBottomSheet = ({
   const { data: draftRecruitList = [] } = useGetRecruitQuery(
     selectedFilters,
     isOpen,
-    true,
   );
   const resultCount = getResultCount(selectedFilters, draftRecruitList.length);
 
