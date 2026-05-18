@@ -8,6 +8,7 @@ export const cardContainer = style({
   alignItems: 'center',
   gap: '1.6rem',
   width: '35.9rem',
+  cursor: 'pointer',
 });
 
 export const textContainer = style({
