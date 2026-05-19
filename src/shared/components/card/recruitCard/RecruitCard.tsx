@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import imgFallback from '@assets/images/img-fallback.webp';
 import SvgIcBookmarkFilled from '@assets/svg/IcBookmarkFilled';
 import SvgIcBookmarkGray400 from '@assets/svg/IcBookmarkGray400';
 import Tag from '@components/tag/Tag';
@@ -42,12 +43,19 @@ const RecruitCard = ({ recrutCardItem, onCardClick }: RecruitCardProps) => {
       <div className={styles.imgContainer}>
         {recrutCardItem.imageUrl && (
           <img
-            src={recrutCardItem.imageUrl}
+            src={recrutCardItem.imageUrl || imgFallback}
             alt={
               recrutCardItem.company
                 ? `${recrutCardItem.company} 로고`
                 : '회사 로고'
             }
+            // 이미지 로드 실패 시 (임시 환경)
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (target.src !== imgFallback) {
+                target.src = imgFallback;
+              }
+            }}
           />
         )}
       </div>
