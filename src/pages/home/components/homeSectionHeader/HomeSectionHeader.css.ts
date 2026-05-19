@@ -7,7 +7,9 @@ export const topTextContainer = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  width: '34.3rem',
+  padding: '0 1.6rem',
+  width: '100%',
+  height: '4.4rem',
 });
 
 export const titleContainer = style({

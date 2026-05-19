@@ -5,7 +5,6 @@ export const mainContainer = style({
   flexDirection: 'column',
   alignItems: 'flex-start',
   gap: '1.6rem',
-  paddingLeft: '1.6rem',
   width: '37.5rem',
 });
 
@@ -14,12 +13,13 @@ export const chatList = style({
   alignItems: 'center',
   alignSelf: 'stretch',
   gap: '1.2rem',
+  padding: '0 1.6rem',
   overflowX: 'auto',
-  scrollBehavior: 'smooth',
 
   selectors: {
     '&::-webkit-scrollbar': {
       display: 'none',
     },
   },
+  scrollBehavior: 'smooth',
 });

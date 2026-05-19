@@ -6,7 +6,6 @@ export const mainContainer = style({
   alignItems: 'flex-start',
   alignSelf: 'stretch',
   gap: '1.6rem',
-  paddingLeft: '1.6rem',
 });
 
 export const jobList = style({
@@ -14,4 +13,5 @@ export const jobList = style({
   flexDirection: 'column',
   alignSelf: 'stretch',
   gap: '1.6rem',
+  padding: '0 1.6rem',
 });

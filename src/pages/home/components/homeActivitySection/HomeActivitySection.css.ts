@@ -6,7 +6,6 @@ export const mainContainer = style({
   alignItems: 'flex-start',
   alignSelf: 'stretch',
   gap: '1.6rem',
-  paddingLeft: '1.6rem',
 });
 
 export const activityList = style({
@@ -14,12 +13,13 @@ export const activityList = style({
   alignItems: 'center',
   alignSelf: 'stretch',
   gap: '1.6rem',
+  padding: '0 1.6rem',
   overflowX: 'auto',
-  scrollBehavior: 'smooth',
 
   selectors: {
     '&::-webkit-scrollbar': {
       display: 'none',
     },
   },
+  scrollBehavior: 'smooth',
 });
