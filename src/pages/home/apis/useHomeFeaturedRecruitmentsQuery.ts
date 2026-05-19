@@ -2,8 +2,8 @@ import { API_ENDPOINT } from '@constants/apiEndpoints';
 import { QUERY_KEY } from '@constants/queryKey';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
-import { HTTPMethod, request } from '@apis/config/request';
 import type { FeaturedRecruitmentResponse } from '@apis/__generated__/data-contracts';
+import { HTTPMethod, request } from '@apis/config/request';
 
 export const getHomeFeaturedRecruitments = () => {
   return request<FeaturedRecruitmentResponse[]>({
