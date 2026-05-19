@@ -10,5 +10,5 @@ interface ImportMeta {
 
 declare module '*.webp' {
   const src: string;
-  return src;
+  export default src;
 }
