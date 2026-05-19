@@ -1,25 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import { useGetHomeFeaturedRecruitmentsQuery } from '@pages/home/apis/useHomeFeaturedRecruitmentsQuery';
+import type { FeaturedRecruitmentResponse } from '@apis/__generated__/data-contracts';
 import HomeJobCard from '@pages/home/components/homeJobCard/HomeJobCard';
 import HomeSectionHeader from '@pages/home/components/homeSectionHeader/HomeSectionHeader';
 import type { HomeJobCardData } from '@pages/home/types/homeJobCard';
 
 import * as styles from './HomeJobSection.css';
 
-const HomeJobSection = () => {
+interface HomeJobSectionProps {
+  featuredRecruitments: FeaturedRecruitmentResponse[];
+}
+
+const HomeJobSection = ({ featuredRecruitments }: HomeJobSectionProps) => {
   const navigate = useNavigate();
-  const { data: featuredRecruitments } = useGetHomeFeaturedRecruitmentsQuery();
   const [jobCards, setJobCards] = useState<HomeJobCardData[]>([]);
 
   useEffect(() => {
-    if (!featuredRecruitments) return;
-
     const mappedJobCards = featuredRecruitments
       .filter((job) => job.id != null)
       .map((job) => ({
-        id: job.id,
+        id: job.id ?? 0,
         logoUrl: job.imageUrl ?? '',
         title: job.title ?? '',
         companyName: job.company ?? '',
