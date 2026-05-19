@@ -19,7 +19,7 @@ export const passDataWrapper = style({
 });
 
 export const sectionAnchor = style({
-  scrollMarginTop: `4.4rem`,
+  scrollMarginTop: `8.8rem`,
 });
 
 export const stickyTabBar = style({
