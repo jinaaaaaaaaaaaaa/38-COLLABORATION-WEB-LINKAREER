@@ -106,7 +106,7 @@ const RecruitPage = () => {
           ))}
         </section>
       )}
-      
+
       {!isListEmpty && (
         <section className={styles.paginationContainer}>
           <Pagination
