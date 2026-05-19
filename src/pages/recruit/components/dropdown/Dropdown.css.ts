@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
+import { zIndex } from '@styles/tokens/zIndex';
 
 export const container = style({
   position: 'relative',
@@ -19,7 +20,7 @@ export const trigger = style({
 
 export const options = style({
   position: 'absolute',
-  zIndex: 50, // TODO: 토큰화 적용 필요
+  zIndex: zIndex.dropdown,
   top: 'calc(100% + 0.4rem)',
   right: 0,
   border: `1px solid ${vars.color.gray100}`,
