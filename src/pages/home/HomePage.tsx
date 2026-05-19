@@ -4,18 +4,18 @@ import { useNavigate } from 'react-router';
 import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
+import HomeActivitySection from './components/homeActivitySection/HomeActivitySection';
 import HomeBanner from './components/homeBanner/HomeBanner';
+import HomeChatSection from './components/homeChatSection/HomeChatSection';
 import HomeCuratedSection from './components/homeCuratedSection/HomeCuratedSection';
 import HomeFeaturedCarousel from './components/homeFeaturedCarousel/HomeFeaturedCarousel';
+import HomeJobSection from './components/HomeJobSection/HomeJobSection';
 import HomeNewNoticeSection from './components/homeNewNoticeSection/HomeNewNoticeSection';
 import { HOME_TOP_BANNER } from './mocks/homeBanner';
 import { HOME_BOTTOM_BANNER } from './mocks/homeBanner';
 import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
 
 import * as styles from './HomePage.css';
-import HomeActivitySection from './components/homeActivitySection/HomeActivitySection';
-import HomeJobSection from './components/HomeJobSection/HomeJobSection';
-import HomeChatSection from './components/homeChatSection/HomeChatSection';
 
 const HomePage = () => {
   const navigate = useNavigate();
