@@ -1,19 +1,10 @@
 import RecruitCard from '@components/card/recruitCard/RecruitCard';
+import type { RecruitListItem } from '@shared/types/recruitCard';
 
 import * as styles from './AiRecommendSection.css';
 
-interface AiRecommendItem {
-  id: number;
-  title: string;
-  company: string;
-  employmentType: string;
-  location: string;
-  imageUrl: string;
-  deadlineLabel: string;
-}
-
 interface AiRecommendSectionProps {
-  items: AiRecommendItem[];
+  items: RecruitListItem[];
 }
 
 const AiRecommendSection = ({ items }: AiRecommendSectionProps) => {
@@ -21,16 +12,7 @@ const AiRecommendSection = ({ items }: AiRecommendSectionProps) => {
     <section className={styles.container}>
       <h2 className={styles.sectionTitle}>AI 추천 공고</h2>
       {items.map((item) => (
-        <RecruitCard
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          company={item.company}
-          employmentType={item.employmentType}
-          location={item.location}
-          imageUrl={item.imageUrl}
-          deadlineLabel={item.deadlineLabel}
-        />
+        <RecruitCard key={item.id} recruitCardItem={item} />
       ))}
     </section>
   );
