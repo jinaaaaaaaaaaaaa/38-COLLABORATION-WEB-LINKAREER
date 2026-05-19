@@ -12,11 +12,7 @@ import FilterBottomSheet from './components/bottomSheet/FilterBottomSheet';
 import EmptySection from './components/emptySection/EmptySection';
 import FilterBar from './components/filterBar/FilterBar';
 import ListControlBar from './components/listControlBar/ListControlBar';
-import {
-  BUSINESS_JOB,
-  FILTER_OPTIONS,
-  SALES_JOB,
-} from './constants/filterOptions';
+import { FILTER_OPTIONS } from './constants/filterOptions';
 import type { FilterValues } from './types/filter';
 import { getResultCount } from './utils/resultNumber';
 
@@ -37,15 +33,13 @@ const RecruitPage = () => {
   const [draftFilters, setDraftFilters] =
     useState<FilterValues>(appliedFilters);
 
-  const selectedJob = appliedFilters.jobCategories[0];
-  const totalPages =
-    selectedJob === SALES_JOB || selectedJob === BUSINESS_JOB ? 1 : 25;
-
   const {
     data: recruitList = [],
     isLoading,
     isError,
   } = useGetRecruitQuery(appliedFilters);
+
+  const totalPages = recruitList.length >= 20 ? 10 : 1;
 
   const resultCount = getResultCount(appliedFilters, recruitList.length);
   const isListEmpty = !isLoading && recruitList.length === 0;
