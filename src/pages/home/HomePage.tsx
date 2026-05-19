@@ -9,9 +9,13 @@ import HomeCuratedSection from './components/homeCuratedSection/HomeCuratedSecti
 import HomeFeaturedCarousel from './components/homeFeaturedCarousel/HomeFeaturedCarousel';
 import HomeNewNoticeSection from './components/homeNewNoticeSection/HomeNewNoticeSection';
 import { HOME_TOP_BANNER } from './mocks/homeBanner';
+import { HOME_BOTTOM_BANNER } from './mocks/homeBanner';
 import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
 
 import * as styles from './HomePage.css';
+import HomeActivitySection from './components/homeActivitySection/HomeActivitySection';
+import HomeJobSection from './components/HomeJobSection/HomeJobSection';
+import HomeChatSection from './components/homeChatSection/HomeChatSection';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -32,6 +36,10 @@ const HomePage = () => {
         <HomeNewNoticeSection />
         <HomeCuratedSection />
         <HomeBanner {...HOME_TOP_BANNER} />
+        <HomeActivitySection />
+        <HomeJobSection />
+        <HomeChatSection />
+        <HomeBanner {...HOME_BOTTOM_BANNER} />
       </div>
     </main>
   );
