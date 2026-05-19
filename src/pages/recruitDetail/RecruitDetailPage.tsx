@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import imgDetail1 from '@assets/images/detail_thumbnail_img1.webp';
 import imgDetail2 from '@assets/images/detail_thumbnail_img2.webp';
@@ -34,13 +34,20 @@ const RecruitDetailPage = () => {
   const [selectedTab, setSelectedTab] = useState('detail');
   const pageTopRef = useRef<HTMLDivElement>(null);
   const detailRef = useRef<HTMLDivElement>(null);
-  const passDataRef = useRef<HTMLDivElement>(null);
+  const passDataRef = useRef<HTMLDivElement | null>(null);
 
-  useTabScrollSync({
-    passDataRef,
+  const setPassDataEl = useTabScrollSync({
     onTabChange: setSelectedTab,
     offset: layout.headerHeight + layout.tabBarHeight,
   });
+
+  const passDataCallbackRef = useCallback(
+    (el: HTMLDivElement | null) => {
+      passDataRef.current = el;
+      setPassDataEl(el);
+    },
+    [setPassDataEl],
+  );
 
   const handleTabChange = (value: string) => {
     setSelectedTab(value);
@@ -113,7 +120,7 @@ const RecruitDetailPage = () => {
 
       {/* 합격 자료 섹션 */}
       <div
-        ref={passDataRef}
+        ref={passDataCallbackRef}
         className={`${styles.passDataWrapper} ${styles.sectionAnchor}`}
       >
         <ReviewSection
