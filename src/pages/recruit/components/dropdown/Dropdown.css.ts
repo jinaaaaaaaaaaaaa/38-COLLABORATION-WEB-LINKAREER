@@ -33,8 +33,11 @@ export const options = style({
 });
 
 export const optionItem = style({
+  display: 'block',
   cursor: 'pointer',
   padding: '0.8rem 1.6rem',
+  width: '100%',
+  textAlign: 'left',
   ...typography.body_r_14,
   color: vars.color.gray900,
 
