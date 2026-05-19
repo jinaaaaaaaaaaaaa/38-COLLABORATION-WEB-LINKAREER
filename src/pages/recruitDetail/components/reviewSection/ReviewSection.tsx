@@ -25,15 +25,17 @@ const ReviewSection = ({ sectionTitle, items }: ReviewSectionProps) => {
           <IcChevronRightGray700 width={16} height={16} />
         </button>
       </div>
-      {items.map((item, index) => (
-        <ReviewCard
-          key={`${sectionTitle}-${item.id}`}
-          title={item.title}
-          body={item.body}
-          tags={item.tags}
-          isBorder={index !== items.length - 1}
-        />
-      ))}
+      <div className={styles.cardList}>
+        {items.map((item, index) => (
+          <ReviewCard
+            key={`${sectionTitle}-${item.id}`}
+            title={item.title}
+            body={item.body}
+            tags={item.tags}
+            isBorder={index !== items.length - 1}
+          />
+        ))}
+      </div>
     </section>
   );
 };
