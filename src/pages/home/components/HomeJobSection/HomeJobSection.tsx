@@ -54,11 +54,12 @@ const HomeJobSection = ({ featuredRecruitments }: HomeJobSectionProps) => {
       <HomeSectionHeader title="지금 지원 가능한 신입/인턴" to="/recruit" />
 
       <div className={styles.jobList}>
-        {jobCards.map((job) => (
+        {jobCards.map((job, index) => (
           <HomeJobCard
             key={job.id}
             {...job}
             onCardClick={() => {
+              if (index !== 0) return;
               void navigate('/recruit/detail');
             }}
             onBookmarkClick={() => {
