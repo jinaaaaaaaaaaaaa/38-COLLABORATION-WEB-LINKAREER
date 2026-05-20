@@ -15,7 +15,10 @@ import HomeNewNoticeSection from './components/homeNewNoticeSection/HomeNewNotic
 import { HOME_BOTTOM_BANNER, HOME_TOP_BANNER } from './mocks/homeBanner';
 import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
 import type { CompanySize } from './types/homeFeaturedCarousel';
-
+import {
+  COMPANY_SIZE_VALUES,
+  DEFAULT_COMPANY_SIZE,
+} from './constants/companySize';
 import * as styles from './HomePage.css';
 
 const getDaysLeft = (dDay?: string) => {
@@ -27,15 +30,11 @@ const getDaysLeft = (dDay?: string) => {
 };
 
 const getCompanySize = (companyType?: string): CompanySize => {
-  if (
-    companyType === '대기업' ||
-    companyType === '중견기업' ||
-    companyType === '중소기업'
-  ) {
-    return companyType;
+  if (COMPANY_SIZE_VALUES.includes(companyType as CompanySize)) {
+    return companyType as CompanySize;
   }
 
-  return '중소기업';
+  return DEFAULT_COMPANY_SIZE;
 };
 
 const HomePage = () => {
