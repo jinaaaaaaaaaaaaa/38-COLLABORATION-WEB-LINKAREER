@@ -15,7 +15,9 @@ export const container = style({
 });
 
 export const imgContainer = style({
+  display: 'flex',
   flexShrink: '0',
+  alignItems: 'center',
   borderRadius: '1rem',
   width: '6rem',
   height: '6rem',
