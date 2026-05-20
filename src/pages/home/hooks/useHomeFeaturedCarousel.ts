@@ -40,7 +40,7 @@ export const useHomeFeaturedCarousel = ({
   const isDraggingRef = useRef(false);
   const isAnimatingRef = useRef(false);
   const shouldPreventClick = useRef(false);
-  const transitionFrameIdsRef = useRef<number[]>([]);
+  const transitionFrameIdRef = useRef<number | null>(null);
 
   const goToNextSlide = useCallback(() => {
     if (itemCount <= MIN_LOOP_ITEM_COUNT || isAnimatingRef.current) return;
@@ -58,28 +58,28 @@ export const useHomeFeaturedCarousel = ({
     setActiveIndex((prevIndex) => prevIndex - 1);
   }, [itemCount]);
 
-  const cancelTransitionFrames = useCallback(() => {
-    transitionFrameIdsRef.current.forEach((frameId) => {
-      window.cancelAnimationFrame(frameId);
-    });
-    transitionFrameIdsRef.current = [];
+  const cancelTransitionFrame = useCallback(() => {
+    if (transitionFrameIdRef.current === null) return;
+
+    window.cancelAnimationFrame(transitionFrameIdRef.current);
+    transitionFrameIdRef.current = null;
   }, []);
 
-  const restoreTransitionAfterJump = () => {
-    cancelTransitionFrames();
+  const restoreTransitionAfterJump = useCallback(() => {
+    cancelTransitionFrame();
 
     const firstFrameId = window.requestAnimationFrame(() => {
       const secondFrameId = window.requestAnimationFrame(() => {
-        transitionFrameIdsRef.current = [];
+        transitionFrameIdRef.current = null;
         isAnimatingRef.current = false;
         setIsTransitionEnabled(true);
       });
 
-      transitionFrameIdsRef.current = [secondFrameId];
+      transitionFrameIdRef.current = secondFrameId;
     });
 
-    transitionFrameIdsRef.current = [firstFrameId];
-  };
+    transitionFrameIdRef.current = firstFrameId;
+  }, [cancelTransitionFrame]);
 
   const handlePointerDown: PointerEventHandler<HTMLDivElement> = (event) => {
     if (itemCount <= MIN_LOOP_ITEM_COUNT || isAnimatingRef.current) return;
@@ -189,7 +189,7 @@ export const useHomeFeaturedCarousel = ({
     return () => window.clearTimeout(slideTimer);
   }, [activeIndex, goToNextSlide, isAutoSlidePaused, itemCount]);
 
-  useEffect(() => cancelTransitionFrames, [cancelTransitionFrames]);
+  useEffect(() => cancelTransitionFrame, [cancelTransitionFrame]);
 
   return {
     activeIndex,
