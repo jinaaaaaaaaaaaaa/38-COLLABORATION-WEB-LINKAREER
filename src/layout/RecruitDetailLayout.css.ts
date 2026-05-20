@@ -6,6 +6,9 @@ export const bottomBarWrapper = style({
   right: 0,
   bottom: 0,
   left: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
 });
 
 export const contentWrapper = style({
