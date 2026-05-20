@@ -7,7 +7,7 @@ interface DdayTagProps {
 
 const getDdayLabel = (days: number) => {
   if (days < 0) return '마감';
-  if (days === 0) return '디데이';
+  if (days === 0) return 'D-day';
   return `D-${days}`;
 };
 
