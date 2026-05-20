@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import type { FeaturedRecruitmentResponse } from '@apis/__generated__/data-contracts';
@@ -14,39 +14,35 @@ interface HomeJobSectionProps {
 
 const HomeJobSection = ({ featuredRecruitments }: HomeJobSectionProps) => {
   const navigate = useNavigate();
-  const [jobCards, setJobCards] = useState<HomeJobCardData[]>([]);
+  const [bookmarkedJobIds, setBookmarkedJobIds] = useState<
+    Record<number, boolean>
+  >({});
 
-  useEffect(() => {
-    const mappedJobCards = featuredRecruitments
+  const jobCards = useMemo<HomeJobCardData[]>(() => {
+    return featuredRecruitments
       .filter((job) => job.id != null)
-      .map((job) => ({
-        id: job.id ?? 0,
-        logoUrl: job.imageUrl ?? '',
-        title: job.title ?? '',
-        companyName: job.company ?? '',
-        dDay: job.dDay ?? '',
-        category: job.jobCategory ?? '',
-        bookmarkCount: 0,
-        isBookmarked: false,
-      }));
-
-    setJobCards(mappedJobCards);
-  }, [featuredRecruitments]);
-
-  const handleBookmarkClick = (selectedJobId: number) => {
-    setJobCards((prevJobCards) =>
-      prevJobCards.map((job) => {
-        if (job.id !== selectedJobId) return job;
+      .map((job) => {
+        const jobId = job.id ?? 0;
+        const isBookmarked = bookmarkedJobIds[jobId] ?? false;
 
         return {
-          ...job,
-          isBookmarked: !job.isBookmarked,
-          bookmarkCount: job.isBookmarked
-            ? job.bookmarkCount - 1
-            : job.bookmarkCount + 1,
+          id: jobId,
+          logoUrl: job.imageUrl ?? '',
+          title: job.title ?? '',
+          companyName: job.company ?? '',
+          dDay: job.dDay ?? '',
+          category: job.jobCategory ?? '',
+          bookmarkCount: isBookmarked ? 1 : 0,
+          isBookmarked,
         };
-      }),
-    );
+      });
+  }, [featuredRecruitments, bookmarkedJobIds]);
+
+  const handleBookmarkClick = (selectedJobId: number) => {
+    setBookmarkedJobIds((prevBookmarkedJobIds) => ({
+      ...prevBookmarkedJobIds,
+      [selectedJobId]: !prevBookmarkedJobIds[selectedJobId],
+    }));
   };
 
   return (
@@ -60,6 +56,7 @@ const HomeJobSection = ({ featuredRecruitments }: HomeJobSectionProps) => {
             {...job}
             onCardClick={() => {
               if (index !== 0) return;
+
               void navigate('/recruit/detail');
             }}
             onBookmarkClick={() => {
