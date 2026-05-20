@@ -20,9 +20,10 @@ import * as styles from './HomePage.css';
 
 const getDaysLeft = (dDay?: string) => {
   if (!dDay) return 0;
-  if (dDay === '채용 시 마감') return 0;
 
-  return Number(dDay.replace('D-', ''));
+  const matchedNumber = dDay.match(/\d+/);
+
+  return matchedNumber ? Number(matchedNumber[0]) : 0;
 };
 
 const getCompanySize = (companyType?: string): CompanySize => {
@@ -39,10 +40,14 @@ const getCompanySize = (companyType?: string): CompanySize => {
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { data: featuredRecruitments = [] } =
-    useGetHomeFeaturedRecruitmentsQuery();
+  const {
+    data: featuredRecruitments = [],
+    isLoading,
+    isError,
+  } = useGetHomeFeaturedRecruitmentsQuery();
 
   const featuredCarouselItems = featuredRecruitments
+    .slice(0, 2)
     .filter((job) => job.id != null)
     .map((job, index) => {
       const fallbackCarouselItem =
@@ -51,7 +56,7 @@ const HomePage = () => {
         ];
 
       return {
-        to: '/recruit/detail',
+        to: index === 0 ? '/recruit/detail' : undefined,
         companyName: job.company ?? '',
         companySize: getCompanySize(job.companyType),
         daysLeft: getDaysLeft(job.dDay),
@@ -65,6 +70,9 @@ const HomePage = () => {
         announcementCategory: job.jobCategory ?? '',
       };
     });
+
+  if (isLoading) return <main>로딩중...</main>;
+  if (isError) return <main>에러가 발생했습니다.</main>;
 
   return (
     <main>

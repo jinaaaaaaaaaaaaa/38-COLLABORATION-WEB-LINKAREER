@@ -28,6 +28,7 @@ const getTrackStyle = (
 const HomeFeaturedCarousel = ({ items }: HomeFeaturedCarouselProps) => {
   const itemCount = items.length;
   const slides = useMemo(() => getHomeFeaturedCarouselSlides(items), [items]);
+
   const {
     activeIndex,
     dragOffset,
