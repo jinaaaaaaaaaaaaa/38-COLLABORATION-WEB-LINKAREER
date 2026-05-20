@@ -12,13 +12,14 @@ import HomeCuratedSection from './components/homeCuratedSection/HomeCuratedSecti
 import HomeFeaturedCarousel from './components/homeFeaturedCarousel/HomeFeaturedCarousel';
 import HomeJobSection from './components/HomeJobSection/HomeJobSection';
 import HomeNewNoticeSection from './components/homeNewNoticeSection/HomeNewNoticeSection';
-import { HOME_BOTTOM_BANNER, HOME_TOP_BANNER } from './mocks/homeBanner';
-import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
-import type { CompanySize } from './types/homeFeaturedCarousel';
 import {
   COMPANY_SIZE_VALUES,
   DEFAULT_COMPANY_SIZE,
 } from './constants/companySize';
+import { HOME_BOTTOM_BANNER, HOME_TOP_BANNER } from './mocks/homeBanner';
+import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
+import type { CompanySize } from './types/homeFeaturedCarousel';
+
 import * as styles from './HomePage.css';
 
 const getDaysLeft = (dDay?: string) => {
