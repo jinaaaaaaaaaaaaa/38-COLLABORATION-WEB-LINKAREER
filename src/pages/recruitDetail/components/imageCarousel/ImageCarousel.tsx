@@ -28,7 +28,7 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
           </div>
         ))}
       </div>
-      <span className={styles.pageLabel}>
+      <span className={styles.pageLabel} translate="no">
         {currentIndex + 1}/{images.length}
       </span>
     </div>

@@ -6,7 +6,6 @@ import { typography } from '@styles/tokens/typography';
 export const container = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.8rem',
   backgroundColor: vars.color.white,
   padding: '2.4rem 1.6rem',
 });
@@ -28,4 +27,10 @@ export const moreButton = style({
   alignItems: 'center',
   ...typography.body_m_14,
   color: vars.color.gray600,
+});
+
+export const cardList = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.8rem',
 });

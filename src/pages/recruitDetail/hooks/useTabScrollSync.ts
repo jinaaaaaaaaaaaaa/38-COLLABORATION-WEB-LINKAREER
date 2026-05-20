@@ -1,23 +1,24 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface UseTabScrollSyncProps {
-  passDataRef: React.RefObject<HTMLDivElement | null>;
   offset?: number;
   onTabChange: (value: string) => void;
 }
 
 export const useTabScrollSync = ({
-  passDataRef,
   offset = 88,
   onTabChange,
 }: UseTabScrollSyncProps) => {
   const onTabChangeRef = useRef(onTabChange);
+  const [passDataEl, setPassDataEl] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
     onTabChangeRef.current = onTabChange;
   }, [onTabChange]);
 
   useEffect(() => {
+    if (!passDataEl) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         onTabChangeRef.current(entry.isIntersecting ? 'pass-data' : 'detail');
@@ -28,8 +29,10 @@ export const useTabScrollSync = ({
       },
     );
 
-    if (passDataRef.current) observer.observe(passDataRef.current);
+    observer.observe(passDataEl);
 
     return () => observer.disconnect();
-  }, [offset, passDataRef]);
+  }, [offset, passDataEl]);
+
+  return setPassDataEl;
 };
