@@ -34,13 +34,16 @@ const RecruitDetailPage = () => {
   const [selectedTab, setSelectedTab] = useState('detail');
   const pageTopRef = useRef<HTMLDivElement>(null);
   const detailRef = useRef<HTMLDivElement>(null);
+  // 탭 클릭 시 scrollIntoView로 해당 섹션으로 이동하기 위한 ref
   const passDataRef = useRef<HTMLDivElement | null>(null);
 
+  // IntersectionObserver로 스크롤 위치를 감지해 활성 탭을 동기화하는 callback ref setter
   const setPassDataEl = useTabScrollSync({
     onTabChange: setSelectedTab,
     offset: layout.headerHeight + layout.tabBarHeight,
   });
 
+  // passDataRef(scrollIntoView용)와 setPassDataEl(observe용)을 동시에 연결하는 callback ref
   const passDataCallbackRef = useCallback(
     (el: HTMLDivElement | null) => {
       passDataRef.current = el;
