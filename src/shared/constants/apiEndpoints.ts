@@ -1,6 +1,6 @@
 export const API_ENDPOINT = {
   HOME: {
-    JOB_POSTINGS: '/api/v1/home/job-postings', // 맞춤 공고 조회, 지금 지원 가능한 공고 조회
+    JOB_POSTINGS: '/api/v1/featured-recruitments', // 맞춤 공고 조회, 지금 지원 가능한 공고 조회
   },
   RECRUIT: {
     LIST: '/api/v1/recruitments', // 필터링 조회
