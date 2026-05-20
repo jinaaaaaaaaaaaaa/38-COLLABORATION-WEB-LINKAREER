@@ -24,7 +24,10 @@ export const mainTitle = style({
 });
 
 export const viewMoreButton = style({
-  textAlign: 'right',
+  display: 'flex',
+  flexShrink: 0,
+  justifyContent: 'center',
+  width: '4.4rem',
   ...typography.body_r_14,
   color: vars.color.gray500,
 });

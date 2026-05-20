@@ -8,7 +8,7 @@ export const cardContainer = style({
   alignItems: 'center',
   gap: '1.6rem',
   cursor: 'pointer',
-  width: '35.9rem',
+  width: '100%',
 });
 
 export const textContainer = style({
@@ -81,6 +81,7 @@ export const bookmarkContainer = style({
   alignItems: 'center',
   justifyContent: 'center',
   gap: '0.4rem',
+  marginLeft: 'auto',
   width: '4.4rem',
   height: '4.4rem',
 });
