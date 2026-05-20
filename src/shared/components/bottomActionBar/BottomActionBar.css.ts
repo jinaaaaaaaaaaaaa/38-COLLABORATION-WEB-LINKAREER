@@ -10,6 +10,7 @@ export const container = style({
   borderTop: `1px solid ${vars.color.gray200}`,
   backgroundColor: vars.color.white,
   padding: '1.2rem 1.6rem',
+  width: '100%',
   maxWidth: '37.5rem',
 });
 
