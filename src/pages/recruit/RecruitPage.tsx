@@ -35,14 +35,14 @@ const RecruitPage = () => {
 
   const {
     data: recruitList = [],
-    isLoading,
+    isPending,
     isError,
   } = useGetRecruitQuery(appliedFilters);
 
   const totalPages = recruitList.length >= 20 ? 10 : 1;
 
   const resultCount = getResultCount(appliedFilters, recruitList.length);
-  const isListEmpty = !isLoading && recruitList.length === 0;
+  const isListEmpty = !isPending && recruitList.length === 0;
 
   const handleTabChange = (value: string) => {
     setSelectedTab(value);
@@ -72,7 +72,7 @@ const RecruitPage = () => {
     hasDot: false,
   }));
 
-  if (isLoading) return <div className={styles.loading}>로딩중...</div>;
+  if (isPending) return <div className={styles.loading}>로딩중...</div>;
   if (isError)
     return <div className={styles.loading}>에러가 발생했습니다.</div>;
 

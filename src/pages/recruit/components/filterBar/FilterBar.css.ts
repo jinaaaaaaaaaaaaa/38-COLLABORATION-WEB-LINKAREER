@@ -1,8 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
 import { vars } from '@styles/theme.css';
+import { zIndex } from '@styles/tokens/zIndex';
 
 export const container = style({
+  position: 'sticky',
+  zIndex: zIndex.sticky,
+  top: '10.5rem',
   display: 'flex',
   alignItems: 'center',
   gap: '0.6rem',

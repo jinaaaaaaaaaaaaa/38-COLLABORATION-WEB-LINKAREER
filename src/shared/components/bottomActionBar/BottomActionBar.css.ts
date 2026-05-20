@@ -7,7 +7,6 @@ export const container = style({
   alignItems: 'center',
   justifyContent: 'center',
   gap: '0.8rem',
-  margin: '0 auto',
   borderTop: `1px solid ${vars.color.gray200}`,
   backgroundColor: vars.color.white,
   padding: '1.2rem 1.6rem',

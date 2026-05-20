@@ -51,7 +51,7 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
                 type="button"
                 className={styles.optionItem}
                 data-selected={value === option.value}
-                onPointerDown={() => handleOptionClick(option.value)}
+                onMouseDown={() => handleOptionClick(option.value)}
               >
                 {option.label}
               </button>
