@@ -31,5 +31,5 @@ export const MENTO_CATEGORY_TABLIST: TabItem[] = [
   { label: '대기업 멘토', value: 'corporate-mentor' },
   { label: '꿀팁 게시판', value: 'tips-board' },
   { label: '대학생 게시판', value: 'college-board' },
-  { label: '직장인 게시판', value: 'worker-board' },
+  { label: '직장인 게시판', value: 'worker-board', hasDot: true },
 ];
