@@ -33,7 +33,6 @@ export const highlight = style({
 export const postSection = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1.6rem',
 });
 
 export const paginationContainer = style({
