@@ -39,11 +39,14 @@ export const textContainer = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.2rem',
+  paddingRight: '1.2rem',
+  minWidth: 0,
 });
 
 export const title = style({
   ...typography.body_sb_16,
-  width: '16.3rem',
+  width: '100%',
+  maxWidth: '20.3rem',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
