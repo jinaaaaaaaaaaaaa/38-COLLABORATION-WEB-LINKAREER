@@ -7,6 +7,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   children: ReactNode;
   onClick?: () => void;
+  className?: string;
 }
 
 const Button = ({
@@ -14,11 +15,12 @@ const Button = ({
   size = 'lg',
   children,
   onClick,
+  className,
 }: Props) => {
   return (
     <button
       type="button"
-      className={styles.button({ color, size })}
+      className={`${styles.button({ color, size })}${className ? ` ${className}` : ''}`}
       onClick={onClick}
     >
       {children}

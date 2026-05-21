@@ -76,11 +76,13 @@ export const chartArea = style({
 
 export const activePercent = style({
   ...typography.caption_m_12,
+  minHeight: '1.8rem',
   color: vars.color.blue500,
 });
 
 export const inactivePercent = style({
   ...typography.caption_r_12,
+  minHeight: '1.8rem',
   color: vars.color.gray700,
 });
 
@@ -88,15 +90,13 @@ export const barList = style({
   display: 'flex',
   alignItems: 'flex-end',
   justifyContent: 'space-between',
-  height: '15rem',
 });
 
 export const barItem = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'flex-end',
-  height: '100%',
+  gap: '0.4rem',
 });
 
 export const barTrack = style({
