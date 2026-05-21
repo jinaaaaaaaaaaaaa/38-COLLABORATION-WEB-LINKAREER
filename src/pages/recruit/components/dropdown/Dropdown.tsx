@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import SvgIcChevronDownGray700 from '@assets/svg/IcChevronDownGray700';
 import {
@@ -16,6 +16,7 @@ interface DropdownProps {
 
 const Dropdown = ({ options, value, onChange }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const selectedOption = options.find((option) => option.value === value);
   const displayText = selectedOption?.label;
@@ -25,15 +26,25 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+
+    return () => {
+      // 클린업
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, [isOpen]);
+
   return (
-    <div
-      className={styles.container}
-      onBlur={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget)) {
-          setIsOpen(false);
-        }
-      }}
-    >
+    <div className={styles.container} ref={containerRef}>
       <button
         type="button"
         className={styles.trigger}
@@ -51,7 +62,7 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
                 type="button"
                 className={styles.optionItem}
                 data-selected={value === option.value}
-                onMouseDown={() => handleOptionClick(option.value)}
+                onClick={() => handleOptionClick(option.value)}
               >
                 {option.label}
               </button>
