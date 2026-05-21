@@ -5,11 +5,13 @@ import IcBookmarkFilled from '@assets/svg/IcBookmarkFilled';
 import IcBookmarkGray400 from '@assets/svg/IcBookmarkGray400';
 import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
 import Footer from '@components/footer/Footer';
+import { useScrollToTop } from '@hooks/useScrollToTop';
 import RecruitDetailHeader from '@pages/recruitDetail/components/recruitDetailHeader/RecruitDetailHeader';
 
 import * as styles from './RecruitDetailLayout.css';
 
 const RecruitDetailLayout = () => {
+  useScrollToTop();
   const navigate = useNavigate();
   const [isBookmarked, setIsBookmarked] = useState(false);
 

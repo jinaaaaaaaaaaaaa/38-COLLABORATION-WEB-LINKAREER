@@ -17,6 +17,18 @@ const getDaysLeft = (dDay?: string) => {
   return matchedNumber ? Number(matchedNumber[0]) : 0;
 };
 
+const formatAnnouncementDeadline = (recruitmentEndDate?: string) => {
+  if (!recruitmentEndDate) return '';
+
+  const matchedDate = recruitmentEndDate.match(/^(\d{4})-(\d{2})-(\d{2})/);
+
+  if (!matchedDate) return recruitmentEndDate;
+
+  const [, , month, day] = matchedDate;
+
+  return `~${month}.${day}`;
+};
+
 const getCompanySize = (companyType?: string): CompanySize => {
   if (COMPANY_SIZE_VALUES.includes(companyType as CompanySize)) {
     return companyType as CompanySize;
@@ -36,6 +48,8 @@ export const convertFeaturedCarouselItems = (
         HOME_FEATURED_CAROUSEL_ITEMS[
           index % HOME_FEATURED_CAROUSEL_ITEMS.length
         ];
+      const announcementDeadline =
+        formatAnnouncementDeadline(job.recruitmentEndDate) || job.dDay || '';
 
       return {
         to: index === 0 ? '/recruit/detail' : undefined,
@@ -48,7 +62,7 @@ export const convertFeaturedCarouselItems = (
         companyLogoUrl: job.imageUrl ?? '',
         companyLogoAlt: `${job.company ?? ''} 로고`,
         announcementTitle: job.title ?? '',
-        announcementDeadline: job.dDay ?? '',
+        announcementDeadline,
         announcementCategory: job.jobCategory ?? '',
       };
     });

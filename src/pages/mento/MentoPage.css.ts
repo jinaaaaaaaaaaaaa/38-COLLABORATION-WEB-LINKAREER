@@ -18,12 +18,12 @@ export const mentoSection = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.6rem',
-  padding: '1.6rem',
-  paddingRight: 0,
+  padding: '1.6rem 0',
 });
 
 export const sectionTitle = style({
   ...typography.title_b_20,
+  paddingLeft: '1.6rem',
 });
 
 export const highlight = style({
@@ -33,7 +33,6 @@ export const highlight = style({
 export const postSection = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1.6rem',
 });
 
 export const paginationContainer = style({

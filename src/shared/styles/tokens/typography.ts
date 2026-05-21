@@ -38,6 +38,11 @@ export const typography = {
     fontSize: '16px',
     fontWeight: fontWeight.bold,
   },
+  body_r_16: {
+    ...baseTypography,
+    fontSize: '16px',
+    fontWeight: fontWeight.regular,
+  },
   body_sb_16: {
     ...baseTypography,
     fontSize: '16px',

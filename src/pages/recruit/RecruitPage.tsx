@@ -46,6 +46,7 @@ const RecruitPage = () => {
 
   const handleTabChange = (value: string) => {
     setSelectedTab(value);
+    void navigate(`/${value}`);
   };
 
   const handleApplyFilters = () => {
