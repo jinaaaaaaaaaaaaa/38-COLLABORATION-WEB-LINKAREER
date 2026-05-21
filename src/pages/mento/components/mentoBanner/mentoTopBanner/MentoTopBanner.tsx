@@ -7,7 +7,13 @@ interface MentoTopBannerProps {
 const MentoTopBanner = ({ imgSrc }: MentoTopBannerProps) => {
   return (
     <aside className={styles.container} aria-label="광고">
-      <img src={imgSrc} alt="광고 이미지" className={styles.content} />
+      <img
+        src={imgSrc}
+        alt="광고 이미지"
+        className={styles.content}
+        width={287}
+        height={48}
+      />
     </aside>
   );
 };
