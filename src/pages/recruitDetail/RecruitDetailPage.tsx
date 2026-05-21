@@ -23,12 +23,19 @@ import ReviewSection from './components/reviewSection/ReviewSection';
 import StatsCarousel from './components/statsCarousel/StatsCarousel';
 import TopBtn from './components/topBtn/TopBtn';
 import { MOCK_AI_RECOMMEND } from './mocks/mockAiRecommend';
+import { MOCK_PASS_COVER_LETTER } from './mocks/mockPassCoverLetter';
 
 import * as styles from './RecruitDetailPage.css';
 
 const RECRUIT_DETAIL_TABS = [
   { label: '상세 내용', value: 'detail' },
   { label: '합격 자료', value: 'pass-data' },
+];
+
+const PASS_REVIEW_TAGS = [
+  ['2025 하반기', 'HR', '인턴'],
+  ['2024 하반기', 'HR', '인턴'],
+  ['2025 하반기', '마케팅', '인턴'],
 ];
 
 const RecruitDetailPage = () => {
@@ -102,18 +109,20 @@ const RecruitDetailPage = () => {
     preferences,
   } = recruitDetail;
 
-  const passCoverLetterItems = passCoverLetters.map((item) => ({
-    id: item.id ?? 0,
-    title: item.companyName ?? '',
-    body: item.content ?? '',
-    tags: [],
-  }));
+  const passCoverLetterItems = passCoverLetters
+    .slice(0, 3)
+    .map((item, index) => ({
+      id: item.id ?? 0,
+      title: item.companyName ?? '',
+      body: item.content ?? '',
+      tags: MOCK_PASS_COVER_LETTER[index].tags,
+    }));
 
-  const passReviewItems = passReviews.map((item) => ({
+  const passReviewItems = passReviews.slice(0, 3).map((item, index) => ({
     id: item.id ?? 0,
     title: item.title ?? '',
     body: item.content ?? '',
-    tags: item.createdAt ? [item.createdAt.slice(0, 10)] : [],
+    tags: PASS_REVIEW_TAGS[index],
   }));
 
   return (
