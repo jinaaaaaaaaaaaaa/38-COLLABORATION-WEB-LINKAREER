@@ -11,7 +11,7 @@ export const HOME_ACTIVITY_CARDS: HomeActivityCardProps[] = [
     title: '제20기 하나금융그룹 SMART 홍보대사 모집',
     companyName: '하나금융그룹',
     dDay: 'D-17',
-    category: '마케팅',
+    category: '마케팅/광고/홍보',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const HOME_ACTIVITY_CARDS: HomeActivityCardProps[] = [
     title: '한화생명 드림플러스 인베스터 클럽 2기',
     companyName: '한화생명보험',
     dDay: 'D-13',
-    category: '마케팅',
+    category: '마케팅/광고/홍보',
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const HOME_ACTIVITY_CARDS: HomeActivityCardProps[] = [
     title: 'DB그룹 제116회 NEW 대학생 기업경영 체험스쿨 참여...',
     companyName: 'DB그룹 인재개발원',
     dDay: 'D-2',
-    category: '마케팅',
+    category: '마케팅/광고/홍보',
   },
   {
     id: 4,
@@ -35,6 +35,6 @@ export const HOME_ACTIVITY_CARDS: HomeActivityCardProps[] = [
     title: '[LH토지주택공사] LH 영(Young) 서포터즈 5기...',
     companyName: 'LH토지주택공사',
     dDay: 'D-day',
-    category: '마케팅',
+    category: '마케팅/광고/홍보',
   },
 ];
