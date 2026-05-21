@@ -5,6 +5,7 @@ LET'S SOPT 38기 합동세미나 모바일 WEB 1조 LINKareer 💼
 <br/>
 
 ## 🖥️ Project Introduce
+
 <img width="8000" height="4500" alt="링커리어_역기획서-이미지-0" src="https://github.com/user-attachments/assets/00c996eb-b4e8-4edd-9197-0be807809f36" />
 <img width="8000" height="4500" alt="링커리어_역기획서-이미지-3" src="https://github.com/user-attachments/assets/f641fcc2-8d00-450b-9d7c-a8e17e6ffe55" />
 <img width="8000" height="4500" alt="ᆼ커리어_역기획서-이미지-4" src="https://github.com/user-attachments/assets/4bbd0ece-2980-4534-bc69-19d6d1ffdc4d" />
