@@ -38,6 +38,7 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
     document.addEventListener('pointerdown', handlePointerDown);
 
     return () => {
+      // 클린업
       document.removeEventListener('pointerdown', handlePointerDown);
     };
   }, [isOpen]);
