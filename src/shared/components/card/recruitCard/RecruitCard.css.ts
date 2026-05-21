@@ -64,8 +64,10 @@ export const icContainer = style({
   width: '2.8rem',
   height: '2.8rem',
 });
+
 export const bottomContainer = style({
   display: 'flex',
+  alignItems: 'center',
   justifyContent: 'space-between',
 });
 
