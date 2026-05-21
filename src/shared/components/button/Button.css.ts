@@ -63,6 +63,12 @@ export const button = recipe({
         height: '3.6rem',
         ...typography.caption_m_12,
       },
+      reg: {
+        borderRadius: '0.8rem',
+        width: '100%',
+        height: '4.8rem',
+        ...typography.body_r_16,
+      },
       lg: {
         borderRadius: '0.8rem',
         width: '100%',

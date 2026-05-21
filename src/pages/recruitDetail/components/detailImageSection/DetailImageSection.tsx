@@ -24,7 +24,7 @@ const DetailImageSection = ({ imageUrl }: DetailImageSectionProps) => {
           />
         </div>
         {!isExpanded && (
-          <Button color="ghost" size="lg" onClick={() => setIsExpanded(true)}>
+          <Button color="ghost" size="reg" onClick={() => setIsExpanded(true)}>
             상세 정보 더 보기
           </Button>
         )}

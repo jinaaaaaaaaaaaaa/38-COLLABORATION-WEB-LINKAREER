@@ -19,7 +19,7 @@ export const iconButton = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  cursor: 'pointer',
-  width: '4rem',
-  height: '4rem',
+  padding: '1rem',
+  width: '4.4rem',
+  height: '4.4rem',
 });
