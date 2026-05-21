@@ -7,11 +7,11 @@ export const STATS_SCHOOL_DATA = [
 ] as const;
 
 export const STATS_MAJOR_DATA = [
-  { rank: 1, label: '언론·방송·', percent: 4.1 },
+  { rank: 1, label: '언론 · 방송 · 매체학', percent: 4.1 },
   { rank: 2, label: '경영학', percent: 10.9 },
-  { rank: 3, label: '영미어·문학', percent: 5.5 },
+  { rank: 3, label: '영미어 · 문학', percent: 5.5 },
   { rank: 4, label: '식품영양학', percent: 4.5 },
-  { rank: 5, label: '광고·홍보학', percent: 2.7 },
+  { rank: 5, label: '광고 · 홍보학', percent: 2.7 },
 ] as const;
 
 export const STATS_JOB_DATA = [
