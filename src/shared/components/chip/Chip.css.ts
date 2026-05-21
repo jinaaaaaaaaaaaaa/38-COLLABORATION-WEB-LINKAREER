@@ -10,6 +10,7 @@ export const chip = recipe({
     gap: '0.2rem',
     outline: 'none',
     ...typography.caption_m_12,
+    border: '1px solid transparent',
     borderRadius: '20rem',
     padding: '0.8rem 1.4rem',
     height: '3.4rem',
@@ -18,7 +19,7 @@ export const chip = recipe({
   variants: {
     variant: {
       default: {
-        border: `1px solid ${color.gray200}`,
+        borderColor: color.gray200,
         color: color.gray700,
       },
       filled: {
@@ -26,11 +27,11 @@ export const chip = recipe({
         color: color.white,
       },
       outline: {
-        border: `1px solid ${color.blue500}`,
+        borderColor: color.blue500,
         color: color.blue500,
       },
       outlineFilled: {
-        border: `1px solid ${color.blue500}`,
+        borderColor: color.blue500,
         backgroundColor: color.blue50,
         color: color.blue500,
       },
