@@ -9,6 +9,7 @@ export const container = recipe({
     display: 'inline-flex',
     flexDirection: 'column',
     flexShrink: 0,
+    justifyContent: 'center',
     gap: '1rem',
     border: `1px solid ${vars.color.gray200}`,
     borderRadius: '1.2rem',
@@ -16,6 +17,7 @@ export const container = recipe({
     padding: '1.8rem',
     paddingRight: '0.9rem',
     width: '21.4rem',
+    height: '19.8rem',
   },
 
   variants: {
