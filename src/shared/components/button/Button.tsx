@@ -4,7 +4,7 @@ import * as styles from './Button.css';
 
 interface Props {
   color?: 'filled' | 'outlined' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'reg' | 'lg';
   children: ReactNode;
   onClick?: () => void;
   className?: string;
