@@ -45,6 +45,7 @@ export const adSource = style({
 });
 
 export const adImg = style({
+  display: 'block',
   flexShrink: 0,
   backgroundColor: vars.color.gray100,
   objectFit: 'cover',

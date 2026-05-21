@@ -13,6 +13,7 @@ const MentoTopBanner = ({ imgSrc }: MentoTopBannerProps) => {
         className={styles.content}
         width={287}
         height={48}
+        fetchPriority="high"
       />
     </aside>
   );
