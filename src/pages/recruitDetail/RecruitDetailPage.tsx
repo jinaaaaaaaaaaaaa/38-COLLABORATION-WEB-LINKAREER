@@ -24,18 +24,13 @@ import StatsCarousel from './components/statsCarousel/StatsCarousel';
 import TopBtn from './components/topBtn/TopBtn';
 import { MOCK_AI_RECOMMEND } from './mocks/mockAiRecommend';
 import { MOCK_PASS_COVER_LETTER } from './mocks/mockPassCoverLetter';
+import { MOCK_PASS_REVIEW_TAGS } from './mocks/mockPassReview';
 
 import * as styles from './RecruitDetailPage.css';
 
 const RECRUIT_DETAIL_TABS = [
   { label: '상세 내용', value: 'detail' },
   { label: '합격 자료', value: 'pass-data' },
-];
-
-const PASS_REVIEW_TAGS = [
-  ['2025 하반기', 'HR', '인턴'],
-  ['2024 하반기', 'HR', '인턴'],
-  ['2025 하반기', '마케팅', '인턴'],
 ];
 
 const RecruitDetailPage = () => {
@@ -122,7 +117,7 @@ const RecruitDetailPage = () => {
     id: item.id ?? 0,
     title: item.title ?? '',
     body: item.content ?? '',
-    tags: PASS_REVIEW_TAGS[index],
+    tags: MOCK_PASS_REVIEW_TAGS[index],
   }));
 
   return (
