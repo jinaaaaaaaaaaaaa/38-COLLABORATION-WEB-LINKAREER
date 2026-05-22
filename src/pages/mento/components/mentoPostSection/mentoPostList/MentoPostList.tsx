@@ -1,6 +1,5 @@
-import { Fragment } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 
-import MentoCenterBanner from '@pages/mento/components/mentoBanner/mentoCenterBanner/MentoCenterBanner';
 import { CENTER_BANNER_NORMAL_POST_INDEX } from '@pages/mento/constants/banner';
 import { CENTER_AD_DATA } from '@pages/mento/mocks/centerAdData';
 import type { Post } from '@pages/mento/types/post';
@@ -8,6 +7,12 @@ import type { Post } from '@pages/mento/types/post';
 import MentoListItem from './mentoListItem/MentoListItem';
 
 import * as styles from './MentoPostList.css';
+
+const MentoCenterBanner = lazy(
+  () =>
+    import('@pages/mento/components/mentoBanner/mentoCenterBanner/MentoCenterBanner'),
+);
+
 interface MentoPostListProps {
   postList: Post[];
   isPending: boolean;
@@ -39,7 +44,9 @@ const MentoPostList = ({
 
           {post.id === centerBannerTargetPostId && (
             <li>
-              <MentoCenterBanner ad={CENTER_AD_DATA} />
+              <Suspense fallback={null}>
+                <MentoCenterBanner ad={CENTER_AD_DATA} />
+              </Suspense>
             </li>
           )}
         </Fragment>

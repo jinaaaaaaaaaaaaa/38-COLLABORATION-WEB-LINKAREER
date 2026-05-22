@@ -2,10 +2,6 @@ import { createBrowserRouter } from 'react-router';
 
 import AppLayout from '@/layout/AppLayout';
 import RecruitDetailLayout from '@/layout/RecruitDetailLayout';
-import HomePage from '@pages/home/HomePage';
-import MentoPage from '@pages/mento/MentoPage';
-import RecruitPage from '@pages/recruit/RecruitPage';
-import RecruitDetailPage from '@pages/recruitDetail/RecruitDetailPage';
 
 const router = createBrowserRouter([
   {
@@ -14,15 +10,21 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        lazy: async () => ({
+          Component: (await import('@pages/home/HomePage')).default,
+        }),
       },
       {
         path: 'recruit',
-        element: <RecruitPage />,
+        lazy: async () => ({
+          Component: (await import('@pages/recruit/RecruitPage')).default,
+        }),
       },
       {
         path: 'mento',
-        element: <MentoPage />,
+        lazy: async () => ({
+          Component: (await import('@pages/mento/MentoPage')).default,
+        }),
       },
     ],
   },
@@ -32,7 +34,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <RecruitDetailPage />,
+        lazy: async () => ({
+          Component: (await import('@pages/recruitDetail/RecruitDetailPage'))
+            .default,
+        }),
       },
     ],
   },
