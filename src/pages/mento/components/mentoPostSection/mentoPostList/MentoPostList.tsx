@@ -10,9 +10,7 @@ import * as styles from './MentoPostList.css';
 
 const MentoCenterBanner = lazy(
   () =>
-    import(
-      '@pages/mento/components/mentoBanner/mentoCenterBanner/MentoCenterBanner'
-    ),
+    import('@pages/mento/components/mentoBanner/mentoCenterBanner/MentoCenterBanner'),
 );
 
 interface MentoPostListProps {
