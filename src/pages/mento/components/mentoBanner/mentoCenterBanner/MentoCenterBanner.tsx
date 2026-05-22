@@ -24,6 +24,7 @@ const MentoCenterBanner = ({ ad }: MentoCenterBannerProps) => {
         className={styles.adImg}
         width={68}
         height={68}
+        loading="lazy"
       />
     </aside>
   );
