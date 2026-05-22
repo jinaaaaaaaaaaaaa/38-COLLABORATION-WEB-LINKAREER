@@ -36,6 +36,8 @@ const MentoListItem = ({ post }: MentoListItemProps) => {
               className={styles.thumbnail}
               src={post.imageUrl}
               alt={`${post.title} 썸네일`}
+              width={47}
+              height={46}
             />
           )}
           <div className={styles.commentBox}>

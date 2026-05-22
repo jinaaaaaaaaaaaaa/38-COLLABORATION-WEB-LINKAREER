@@ -85,6 +85,7 @@ export const rightInfo = style({
 
 export const thumbnail = style({
   display: 'block',
+  flexShrink: 0,
   borderRadius: '0.6rem',
   backgroundColor: vars.color.gray100,
   objectFit: 'cover',

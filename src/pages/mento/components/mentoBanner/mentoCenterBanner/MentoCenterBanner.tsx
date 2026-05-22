@@ -18,7 +18,13 @@ const MentoCenterBanner = ({ ad }: MentoCenterBannerProps) => {
           <span className={styles.adSource}>{ad.source}</span>
         </div>
       </div>
-      <img src={ad.imageUrl} alt="광고 이미지" className={styles.adImg} />
+      <img
+        src={ad.imageUrl}
+        alt="광고 이미지"
+        className={styles.adImg}
+        width={68}
+        height={68}
+      />
     </aside>
   );
 };
