@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { MENTO_CATEGORY_TABLIST, MENTO_MAIN_TABLIST } from '@constants/tabList';
 
 import imgMentoTopBanner from '@assets/images/img_mento4.webp';
-import Pagination from '@components/pagination/Pagination';
 import TabBar from '@components/tabBar/TabBar';
 
 import MentoTopBanner from './components/mentoBanner/mentoTopBanner/MentoTopBanner';
@@ -13,6 +12,8 @@ import WriteButton from './components/writeButton/WriteButton';
 import { CARD_DATA } from './mocks/cardData';
 
 import * as styles from './MentoPage.css';
+
+const Pagination = lazy(() => import('@components/pagination/Pagination'));
 
 const MentoPage = () => {
   const [selectedMainTab, setSelectedMainTab] = useState<string>(
@@ -49,11 +50,13 @@ const MentoPage = () => {
       </section>
       <MentoPostSection />
       <div className={styles.paginationContainer}>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={5}
-          onPageChange={setCurrentPage}
-        />
+        <Suspense fallback={null}>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={5}
+            onPageChange={setCurrentPage}
+          />
+        </Suspense>
       </div>
       <WriteButton />
     </div>
